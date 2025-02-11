@@ -15,6 +15,9 @@ const
   {$IFDEF LCLQt5}
   cVERSION    = cVersionBase+'QT5';
   {$ENDIF}
+  {$IFDEF LCLQt6}
+  cVERSION    = cVersionBase+'QT6';
+  {$ENDIF}
 
   cMAJOR      = 2;
   cMINOR      = 6;
