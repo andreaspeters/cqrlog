@@ -1269,12 +1269,12 @@ begin
     mComment.ReadOnly := False;
     edtDXCCRef.ReadOnly:=True;  //we allow only DXCCs from list, no free type
   end;
-  sbtnQRZ.Visible        := False;
-  sbtnLoTW.Visible       := False;
-  sbtneQSL.Visible       := False;
-  sbtnHamQTH.Visible     := False;
-  sbtnLocatorMap.Visible := False;
-  sbtnUsrBtn.Visible     := False;
+  sbtnQRZ.Enabled        := False;
+  sbtnLoTW.Enabled       := False;
+  sbtneQSL.Enabled       := False;
+  sbtnHamQTH.Enabled     := False;
+  sbtnLocatorMap.Enabled := False;
+  sbtnUsrBtn.Enabled     := False;
   TabUsed    := False;
   fromNewQSO := False;
   FromDXC  := False;
@@ -1436,10 +1436,10 @@ begin
     tmrStart.Enabled := True;
   tmrEnd.Enabled := False;
   FromDXC := False;
-  lblQSLMgr.Visible := False;
+  lblQSLMgr.Enabled := False;
   sbNewQSO.Panels[1].Text := '';
-  sbtnAttach.Visible := False;
-  sbtnQSL.Visible    := False;
+  sbtnAttach.Enabled := False;
+  sbtnQSL.Enabled    := False;
   ChangeDXCC := False;
   adif := 0;
   FreqBefChange := frmTRXControl.GetFreqMHz;
@@ -1577,8 +1577,8 @@ begin
           cqrini.WriteInteger('NewQSO','DetailsTabIndex',1);
 
   frmNewQSO.pgDetails.TabIndex:=  cqrini.ReadInteger('NewQSO','DetailsTabIndex', 0);
-  frmNewQSO.pgDetails.Pages[2].TabVisible := cqrini.ReadBool('NewQSO','SatelliteMode', False);
-  frmNewQSO.pgDetails.Pages[3].TabVisible := cqrini.ReadBool('NewQSO','SatelliteMode', False);
+  //frmNewQSO.pgDetails.Pages[2].TabVisible := cqrini.ReadBool('NewQSO','SatelliteMode', False);
+  //frmNewQSO.pgDetails.Pages[3].TabVisible := cqrini.ReadBool('NewQSO','SatelliteMode', False);
 
   //this have to be done here when log is selected (settings at database)
   frmReminder.chRemi.Checked := cqrini.ReadBool('Reminder','chRemi',False);
@@ -4555,7 +4555,7 @@ begin
   if dmUtils.isLocOK(edtGrid.Text) then
     begin
      CalculateDistanceEtc;
-     sbtnLocatorMap.Visible := True;
+     sbtnLocatorMap.Enabled := True;
      lblGrid.Font.Style:=[];
      lblGrid.Font.Color:=clDefault;
     end
@@ -5470,13 +5470,13 @@ begin
   freq := '';
   if edtCall.Text='' then
     exit;
-  sbtnQRZ.Visible    := True;
-  sbtnHamQTH.Visible := True;
-  sbtnUsrBtn.Visible := True;
+  sbtnQRZ.Enabled    := True;
+  sbtnHamQTH.Enabled := True;
+  sbtnUsrBtn.Enabled := True;
   if cqrini.ReadBool('LoTW','ShowInfo',True) then
   begin
-    sbtneQSL.Visible := dmData.UseseQSL(edtCall.Text);
-    sbtnLoTW.Visible := dmData.UsesLotw(edtCall.Text)
+    sbtneQSL.Enabled := dmData.UseseQSL(edtCall.Text);
+    sbtnLoTW.Enabled := dmData.UsesLotw(edtCall.Text)
   end;
   if old_adif = 0 then
     old_adif := adif;
@@ -7048,17 +7048,17 @@ end;
 procedure TfrmNewQSO.CheckAttachment;
 begin
   if DirectoryExists(dmUtils.GetCallAttachDir(edtCall.Text)) then
-    sbtnAttach.Visible := True
+    sbtnAttach.Enabled := True
   else
-    sbtnAttach.Visible := False
+    sbtnAttach.Enabled := False
 end;
 
 procedure TfrmNewQSO.CheckQSLImage;
 begin
   if dmUtils.QSLFrontImageExists(dmUtils.GetCallForAttach(edtCall.Text)) <> '' then
-    sbtnQSL.Visible := True
+    sbtnQSL.Enabled := True
   else
-    sbtnQSL.Visible := False
+    sbtnQSL.Enabled := False
 end;
 
 procedure TfrmNewQSO.UpdateFKeyLabels;
