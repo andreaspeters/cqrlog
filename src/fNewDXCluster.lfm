@@ -1,66 +1,66 @@
 object frmNewDXCluster: TfrmNewDXCluster
   Left = 616
-  Height = 179
+  Height = 201
   Top = 498
-  Width = 303
+  Width = 304
   HorzScrollBar.Page = 302
   VertScrollBar.Page = 178
   ActiveControl = edtDescription
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'New dxcluster'
-  ClientHeight = 179
-  ClientWidth = 303
-  OnShow = FormShow
+  ClientHeight = 201
+  ClientWidth = 304
   Position = poMainFormCenter
+  OnShow = FormShow
   object Label1: TLabel
     Left = 9
-    Height = 20
+    Height = 22
     Top = 8
-    Width = 77
+    Width = 91
     Caption = 'Description:'
     Color = clNone
     ParentColor = False
   end
   object Label2: TLabel
     Left = 9
-    Height = 20
-    Top = 64
-    Width = 57
+    Height = 22
+    Top = 72
+    Width = 65
     Caption = 'Address:'
     Color = clNone
     ParentColor = False
   end
   object Label3: TLabel
     Left = 128
-    Height = 20
-    Top = 64
-    Width = 31
+    Height = 22
+    Top = 72
+    Width = 36
     Caption = 'Port:'
     Color = clNone
     ParentColor = False
   end
   object Label4: TLabel
     Left = 9
-    Height = 20
-    Top = 122
-    Width = 76
+    Height = 22
+    Top = 136
+    Width = 87
     Caption = 'User name:'
     Color = clNone
     ParentColor = False
   end
   object Label5: TLabel
     Left = 124
-    Height = 20
-    Top = 122
-    Width = 64
+    Height = 22
+    Top = 136
+    Width = 77
     Caption = 'Password:'
     Color = clNone
     ParentColor = False
   end
   object edtDescription: TEdit
     Left = 9
-    Height = 25
+    Height = 36
     Top = 32
     Width = 193
     MaxLength = 100
@@ -68,29 +68,29 @@ object frmNewDXCluster: TfrmNewDXCluster
   end
   object edtAddress: TEdit
     Left = 9
-    Height = 25
-    Top = 88
+    Height = 36
+    Top = 96
     Width = 104
     TabOrder = 1
   end
   object edtPort: TEdit
     Left = 122
-    Height = 25
-    Top = 88
+    Height = 36
+    Top = 96
     Width = 80
     TabOrder = 2
   end
   object edtUserName: TEdit
     Left = 9
-    Height = 25
-    Top = 144
+    Height = 36
+    Top = 158
     Width = 80
     TabOrder = 3
   end
   object edtPassword: TEdit
     Left = 122
-    Height = 25
-    Top = 144
+    Height = 36
+    Top = 158
     Width = 80
     TabOrder = 4
   end
@@ -107,7 +107,7 @@ object frmNewDXCluster: TfrmNewDXCluster
   object btnCancel: TButton
     Left = 216
     Height = 25
-    Top = 42
+    Top = 43
     Width = 75
     BorderSpacing.InnerBorder = 4
     Cancel = True

@@ -1,6 +1,6 @@
 object frmChangeFreq: TfrmChangeFreq
   Left = 471
-  Height = 185
+  Height = 209
   Top = 192
   Width = 557
   HorzScrollBar.Page = 324
@@ -9,89 +9,88 @@ object frmChangeFreq: TfrmChangeFreq
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'Change frequency'
-  ClientHeight = 185
+  ClientHeight = 209
   ClientWidth = 557
   Position = poOwnerFormCenter
-  LCLVersion = '2.0.8.0'
   object Label1: TLabel
     Left = 14
-    Height = 17
-    Top = 16
-    Width = 37
+    Height = 22
+    Top = 11
+    Width = 44
     Caption = 'Begin'
     ParentColor = False
   end
   object Label2: TLabel
-    Left = 169
-    Height = 17
-    Top = 16
-    Width = 24
+    Left = 168
+    Height = 22
+    Top = 11
+    Width = 29
     Caption = 'End'
     ParentColor = False
   end
   object Label3: TLabel
     Left = 14
-    Height = 17
+    Height = 22
     Top = 72
-    Width = 22
+    Width = 25
     Caption = 'CW'
     ParentColor = False
   end
   object Label4: TLabel
     Left = 174
-    Height = 17
+    Height = 22
     Top = 72
-    Width = 32
+    Width = 40
     Caption = 'DATA'
     ParentColor = False
   end
   object Label5: TLabel
     Left = 328
-    Height = 17
+    Height = 22
     Top = 72
-    Width = 25
+    Width = 28
     Caption = 'SSB'
     ParentColor = False
   end
   object edtBegin: TEdit
     Left = 14
-    Height = 34
+    Height = 36
     Top = 33
     Width = 100
-    OnKeyPress = ChkKeyPress
     TabOrder = 0
+    OnKeyPress = ChkKeyPress
   end
   object edtEnd: TEdit
     Left = 169
-    Height = 34
+    Height = 36
     Top = 33
     Width = 100
-    OnKeyPress = ChkKeyPress
     TabOrder = 1
+    OnKeyPress = ChkKeyPress
   end
   object edtCW: TEdit
-    Left = 12
-    Height = 34
-    Top = 89
+    Left = 14
+    Height = 36
+    Top = 96
     Width = 100
-    OnKeyPress = ChkKeyPress
     TabOrder = 2
+    OnKeyPress = ChkKeyPress
   end
   object edtData: TEdit
-    Left = 168
-    Height = 34
-    Top = 89
+    Left = 172
+    Height = 36
+    Top = 96
     Width = 100
-    OnKeyPress = ChkKeyPress
     TabOrder = 3
+    OnKeyPress = ChkKeyPress
   end
   object edtSSB: TEdit
     Left = 328
-    Height = 34
-    Top = 89
+    Height = 36
+    Top = 96
     Width = 100
-    OnKeyPress = ChkKeyPress
     TabOrder = 4
+    OnKeyPress = ChkKeyPress
   end
   object btnOK: TButton
     Left = 472
@@ -100,8 +99,8 @@ object frmChangeFreq: TfrmChangeFreq
     Width = 75
     BorderSpacing.InnerBorder = 4
     Caption = 'OK'
-    OnClick = btnOKClick
     TabOrder = 7
+    OnClick = btnOKClick
   end
   object btnCancel: TButton
     Left = 472
@@ -116,91 +115,91 @@ object frmChangeFreq: TfrmChangeFreq
   end
   object edtRXOffset: TEdit
     Left = 14
-    Height = 34
-    Top = 145
+    Height = 36
+    Top = 160
     Width = 98
-    OnKeyPress = ChkKeyPress
     TabOrder = 5
     Text = '0'
+    OnKeyPress = ChkKeyPress
   end
   object Label6: TLabel
     Left = 14
-    Height = 17
-    Top = 129
-    Width = 59
+    Height = 22
+    Top = 136
+    Width = 67
     Caption = 'RX offset'
     ParentColor = False
   end
   object edtTXOffset: TEdit
-    Left = 168
-    Height = 34
-    Top = 145
+    Left = 172
+    Height = 36
+    Top = 160
     Width = 100
-    OnKeyPress = ChkKeyPress
     TabOrder = 6
     Text = '0'
+    OnKeyPress = ChkKeyPress
   end
   object Label7: TLabel
     Left = 168
-    Height = 17
-    Top = 129
-    Width = 58
+    Height = 22
+    Top = 136
+    Width = 66
     Caption = 'TX offset'
     ParentColor = False
   end
   object Label8: TLabel
     Left = 115
-    Height = 17
+    Height = 22
     Top = 39
-    Width = 29
+    Width = 34
     Caption = 'MHz'
     ParentColor = False
   end
   object Label9: TLabel
-    Left = 115
-    Height = 17
-    Top = 96
-    Width = 29
+    Left = 119
+    Height = 22
+    Top = 103
+    Width = 34
     Caption = 'MHz'
     ParentColor = False
   end
   object Label10: TLabel
     Left = 115
-    Height = 17
-    Top = 151
-    Width = 29
+    Height = 22
+    Top = 157
+    Width = 34
     Caption = 'MHz'
     ParentColor = False
   end
   object Label11: TLabel
     Left = 272
-    Height = 17
+    Height = 22
     Top = 39
-    Width = 29
+    Width = 34
     Caption = 'MHz'
     ParentColor = False
   end
   object Label12: TLabel
-    Left = 272
-    Height = 17
-    Top = 96
-    Width = 29
+    Left = 276
+    Height = 22
+    Top = 103
+    Width = 34
     Caption = 'MHz'
     ParentColor = False
   end
   object Label13: TLabel
-    Left = 272
-    Height = 17
-    Top = 151
-    Width = 29
+    Left = 276
+    Height = 22
+    Top = 164
+    Width = 34
     Caption = 'MHz'
     ParentColor = False
   end
   object Label14: TLabel
-    Left = 432
-    Height = 17
-    Top = 96
-    Width = 29
+    Left = 436
+    Height = 22
+    Top = 103
+    Width = 34
     Caption = 'MHz'
     ParentColor = False
   end

@@ -1,16 +1,16 @@
 object frmMarkQSL: TfrmMarkQSL
   Left = 623
-  Height = 239
+  Height = 274
   Top = 347
-  Width = 211
+  Width = 234
   HelpType = htKeyword
   HelpKeyword = 'help/h22.html#bh5'
   ActiveControl = btnApply
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'Auto mark QSL'
-  ClientHeight = 239
-  ClientWidth = 211
+  ClientHeight = 274
+  ClientWidth = 234
   Icon.Data = {
     BE0C00000000010001002020000001001800A80C000016000000280000002000
     0000400000000100180000000000000C00006400000064000000000000000000
@@ -116,39 +116,38 @@ object frmMarkQSL: TfrmMarkQSL
     7FFF0000FFFF0001FFFF0003FFFF0007FFFF001FFFFF003FFFFF00FFFFFF83FF
     FFFF
   }
-  OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '0.9.29'
+  OnShow = FormShow
   object Label1: TLabel
-    Left = 8
-    Height = 17
-    Top = 143
-    Width = 81
+    Left = 16
+    Height = 22
+    Top = 175
+    Width = 98
     Caption = 'Choose type:'
     ParentColor = False
   end
   object lblProg: TLabel
-    Left = 8
+    Left = 16
     Height = 20
-    Top = 171
-    Width = 185
+    Top = 208
+    Width = 209
     AutoSize = False
     ParentColor = False
   end
   object cmbQSLS: TComboBox
-    Left = 118
-    Height = 28
-    Top = 136
-    Width = 75
+    Left = 135
+    Height = 36
+    Top = 168
+    Width = 91
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
-    ItemHeight = 0
+    ItemHeight = 34
     TabOrder = 0
   end
   object btnCancel: TButton
-    Left = 128
+    Left = 151
     Height = 28
-    Top = 200
+    Top = 232
     Width = 75
     BorderSpacing.InnerBorder = 4
     Caption = '&Close'
@@ -156,20 +155,20 @@ object frmMarkQSL: TfrmMarkQSL
     TabOrder = 2
   end
   object btnApply: TButton
-    Left = 8
+    Left = 16
     Height = 28
-    Top = 200
+    Top = 232
     Width = 75
     BorderSpacing.InnerBorder = 4
     Caption = '&Apply'
-    OnClick = btnApplyClick
     TabOrder = 1
+    OnClick = btnApplyClick
   end
   object chgQSL: TCheckGroup
-    Left = 8
+    Left = 15
     Height = 104
-    Top = 16
-    Width = 195
+    Top = 48
+    Width = 211
     AutoFill = True
     Caption = ' QSO '
     ChildSizing.LeftRightSpacing = 6
@@ -180,6 +179,8 @@ object frmMarkQSL: TfrmMarkQSL
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 1
+    ClientHeight = 71
+    ClientWidth = 207
     Items.Strings = (
       'First QSO'
       'First band QSO'
@@ -192,20 +193,20 @@ object frmMarkQSL: TfrmMarkQSL
   end
   object cmbType: TComboBox
     Left = 15
-    Height = 30
+    Height = 36
     Top = 10
     Width = 90
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
-    ItemHeight = 0
+    ItemHeight = 28
     ItemIndex = 0
     Items.Strings = (
       'QSO'
       'DXCC'
     )
-    OnChange = cmbTypeChange
     Style = csDropDownList
     TabOrder = 4
     Text = 'QSO'
+    OnChange = cmbTypeChange
   end
-end
+end

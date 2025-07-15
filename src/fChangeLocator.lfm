@@ -1,6 +1,6 @@
 object frmChangeLocator: TfrmChangeLocator
   Left = 657
-  Height = 108
+  Height = 130
   Top = 416
   Width = 236
   HorzScrollBar.Page = 239
@@ -11,15 +11,14 @@ object frmChangeLocator: TfrmChangeLocator
   BorderStyle = bsDialog
   BorderWidth = 10
   Caption = 'Change locator'
-  ClientHeight = 108
+  ClientHeight = 130
   ClientWidth = 236
   Position = poMainFormCenter
-  LCLVersion = '2.0.2.0'
   object lblEnterLocator: TLabel
     Left = 8
-    Height = 17
+    Height = 22
     Top = 8
-    Width = 120
+    Width = 140
     Caption = 'Enter your locator:'
     ParentColor = False
   end
@@ -27,37 +26,37 @@ object frmChangeLocator: TfrmChangeLocator
     AnchorSideTop.Control = lblEnterLocator
     AnchorSideTop.Side = asrBottom
     Left = 8
-    Height = 34
-    Top = 27
+    Height = 36
+    Top = 32
     Width = 216
     BorderSpacing.Top = 2
     MaxLength = 6
+    TabOrder = 0
     OnChange = edtLocatorChange
     OnKeyPress = edtLocatorKeyPress
-    TabOrder = 0
   end
   object btnOK: TButton
     AnchorSideTop.Control = edtLocator
     AnchorSideTop.Side = asrBottom
     Left = 8
-    Height = 41
-    Top = 71
+    Height = 40
+    Top = 78
     Width = 64
     AutoSize = True
     BorderSpacing.Top = 10
     BorderSpacing.InnerBorder = 4
     Caption = 'OK'
     Constraints.MinWidth = 64
-    OnClick = btnOKClick
     TabOrder = 1
+    OnClick = btnOKClick
   end
   object btnStorno: TButton
     AnchorSideTop.Control = edtLocator
     AnchorSideTop.Side = asrBottom
     Left = 160
-    Height = 41
-    Top = 71
-    Width = 68
+    Height = 40
+    Top = 78
+    Width = 72
     AutoSize = True
     BorderSpacing.Top = 10
     BorderSpacing.InnerBorder = 4

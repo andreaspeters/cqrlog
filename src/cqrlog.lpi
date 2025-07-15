@@ -19,11 +19,90 @@
       <AutoIncrementBuild Value="True"/>
       <MinorVersionNr Value="3"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="2208"/>
+      <BuildNr Value="2209"/>
       <StringTable ProductVersion="0.3.1.2026"/>
     </VersionInfo>
-    <BuildModes Count="1">
+    <BuildModes Count="3">
       <Item1 Name="default" Default="True"/>
+      <Item2 Name="Debug">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <SearchPaths>
+            <Libraries Value="$(LazarusDir)/lcl;../../../.lazarus/lib/LCLBase/units/x86_64-linux"/>
+            <OtherUnitFiles Value="lnet/lib;synapse"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <CStyleOperator Value="False"/>
+              <IncludeAssertionCode Value="True"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <Checks>
+              <IOChecks Value="True"/>
+              <RangeChecks Value="True"/>
+              <OverflowChecks Value="True"/>
+              <StackChecks Value="True"/>
+            </Checks>
+            <VerifyObjMethodCallValidity Value="True"/>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <DebugInfoType Value="dsDwarf3"/>
+              <UseHeaptrc Value="True"/>
+              <TrashVariables Value="True"/>
+            </Debugging>
+          </Linking>
+          <Other>
+            <Verbosity>
+              <ShowNotes Value="False"/>
+              <ShowHints Value="False"/>
+              <ShowLineNum Value="True"/>
+              <ShowDebugInfo Value="True"/>
+            </Verbosity>
+            <CustomOptions Value="-dNO_CONTEST"/>
+            <CreateMakefileOnBuild Value="True"/>
+          </Other>
+        </CompilerOptions>
+      </Item2>
+      <Item3 Name="Release">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <SearchPaths>
+            <Libraries Value="$(LazarusDir)/lcl;../../../.lazarus/lib/LCLBase/units/x86_64-linux"/>
+            <OtherUnitFiles Value="lnet/lib;synapse"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <CStyleOperator Value="False"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <Optimizations>
+              <OptimizationLevel Value="3"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+              <RunWithoutDebug Value="True"/>
+              <StripSymbols Value="True"/>
+            </Debugging>
+            <LinkSmart Value="True"/>
+          </Linking>
+          <Other>
+            <Verbosity>
+              <ShowNotes Value="False"/>
+              <ShowHints Value="False"/>
+              <ShowLineNum Value="True"/>
+              <ShowDebugInfo Value="True"/>
+            </Verbosity>
+            <CustomOptions Value="-dNO_CONTEST"/>
+            <CreateMakefileOnBuild Value="True"/>
+          </Other>
+        </CompilerOptions>
+      </Item3>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>
@@ -34,12 +113,6 @@
         <CommandLineParams Value="--debug=0"/>
         <LaunchingApplication PathPlusParams="/usr/X11R6/bin/xterm -T &apos;Lazarus Run Output&apos; -e $(LazarusDir)/tools/runwait.sh $(TargetCmdLine)"/>
       </local>
-      <environment>
-        <UserOverrides Count="2">
-          <Variable0 Name="FIREBIRD" Value="/home/ok2cqr/projekty/cqrlog/testing"/>
-          <Variable1 Name="HEAPTRC" Value="1"/>
-        </UserOverrides>
-      </environment>
       <FormatVersion Value="2"/>
       <Modes Count="1">
         <Mode0 Name="default">
@@ -169,6 +242,7 @@
         <Filename Value="fSort.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmSort"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit10>
       <Unit11>
@@ -189,12 +263,14 @@
         <Filename Value="fImportTest.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmImportTest"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit13>
       <Unit14>
         <Filename Value="fSelectDXCC.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmSelectDXCC"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit14>
       <Unit15>
@@ -264,6 +340,7 @@
         <Filename Value="fEnterFreq.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEnterFreq"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit24>
       <Unit25>
@@ -305,12 +382,14 @@
         <Filename Value="fSerialPort.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmSerialPort"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit30>
       <Unit31>
         <Filename Value="fQSLMgr.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmQSLMgr"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit31>
       <Unit32>
@@ -331,6 +410,7 @@
         <Filename Value="fUpgrade.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmUpgrade"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit34>
       <Unit35>
@@ -344,6 +424,7 @@
         <Filename Value="fIOTAStat.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmIOTAStat"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit36>
       <Unit37>
@@ -385,6 +466,7 @@
         <Filename Value="fLongNote.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmLongNote"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit42>
       <Unit43>
@@ -465,6 +547,7 @@
         <Filename Value="fShowStations.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmShowStations"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit54>
       <Unit55>
@@ -482,6 +565,7 @@
         <Filename Value="fSQLConsole.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmSQLConsole"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit57>
       <Unit58>
@@ -502,12 +586,14 @@
         <Filename Value="fQSLViewer.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmQSLViewer"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit60>
       <Unit61>
         <Filename Value="fSCP.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmSCP"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit61>
       <Unit62>
@@ -692,7 +778,9 @@
       <Unit88>
         <Filename Value="fException.pas"/>
         <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmException"/>
         <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
       </Unit88>
       <Unit89>
         <Filename Value="fCommentToCall.pas"/>
@@ -898,7 +986,9 @@
       <Unit122>
         <Filename Value="fDbError.pas"/>
         <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmDbError"/>
         <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
       </Unit122>
       <Unit123>
         <Filename Value="fCountyStat.lfm"/>

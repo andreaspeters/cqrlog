@@ -1,24 +1,23 @@
 object frmAddRadioMemory: TfrmAddRadioMemory
   Left = 32
-  Height = 222
+  Height = 250
   Top = 235
   Width = 308
   BorderStyle = bsDialog
   Caption = 'New memory'
-  ClientHeight = 222
+  ClientHeight = 250
   ClientWidth = 308
+  Position = poOwnerFormCenter
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
   OnShow = FormShow
-  Position = poOwnerFormCenter
-  LCLVersion = '2.2.4.0'
   object lblFreq: TLabel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     Left = 12
-    Height = 17
+    Height = 22
     Top = 2
-    Width = 112
+    Width = 129
     BorderSpacing.Left = 12
     BorderSpacing.Top = 2
     Caption = 'Frequency in kHz'
@@ -29,22 +28,22 @@ object frmAddRadioMemory: TfrmAddRadioMemory
     AnchorSideTop.Control = lblFreq
     AnchorSideTop.Side = asrBottom
     Left = 12
-    Height = 34
-    Top = 19
+    Height = 36
+    Top = 24
     Width = 192
     BorderSpacing.Left = 12
+    TabOrder = 0
     OnKeyDown = FormKeyDown
     OnKeyPress = edtFreqKeyPress
-    TabOrder = 0
   end
   object lblMode: TLabel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = edtFreq
     AnchorSideTop.Side = asrBottom
     Left = 12
-    Height = 17
-    Top = 55
-    Width = 36
+    Height = 22
+    Top = 62
+    Width = 44
     BorderSpacing.Left = 12
     BorderSpacing.Top = 2
     Caption = 'Mode'
@@ -55,25 +54,25 @@ object frmAddRadioMemory: TfrmAddRadioMemory
     AnchorSideTop.Control = lblMode
     AnchorSideTop.Side = asrBottom
     Left = 12
-    Height = 34
-    Top = 72
+    Height = 36
+    Top = 84
     Width = 192
     AutoComplete = True
     AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
     BorderSpacing.Left = 12
     CharCase = ecUppercase
-    ItemHeight = 0
-    OnKeyDown = FormKeyDown
+    ItemHeight = 34
     TabOrder = 1
+    OnKeyDown = FormKeyDown
   end
   object lblWidth: TLabel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = cmbMode
     AnchorSideTop.Side = asrBottom
     Left = 12
-    Height = 17
-    Top = 108
-    Width = 100
+    Height = 22
+    Top = 122
+    Width = 115
     BorderSpacing.Left = 12
     BorderSpacing.Top = 2
     Caption = 'Bandwidth (Hz)'
@@ -84,13 +83,13 @@ object frmAddRadioMemory: TfrmAddRadioMemory
     AnchorSideTop.Control = lblWidth
     AnchorSideTop.Side = asrBottom
     Left = 12
-    Height = 34
-    Top = 125
+    Height = 36
+    Top = 144
     Width = 112
     BorderSpacing.Left = 12
     NumbersOnly = True
-    OnKeyDown = FormKeyDown
     TabOrder = 2
+    OnKeyDown = FormKeyDown
   end
   object Button1: TButton
     AnchorSideTop.Control = Owner
@@ -104,8 +103,8 @@ object frmAddRadioMemory: TfrmAddRadioMemory
     BorderSpacing.Top = 6
     BorderSpacing.Right = 12
     Caption = 'OK'
-    OnClick = Button1Click
     TabOrder = 4
+    OnClick = Button1Click
   end
   object Button2: TButton
     AnchorSideTop.Control = Button1
@@ -129,9 +128,9 @@ object frmAddRadioMemory: TfrmAddRadioMemory
     AnchorSideTop.Control = edtWidth
     AnchorSideTop.Side = asrBottom
     Left = 12
-    Height = 17
-    Top = 161
-    Width = 25
+    Height = 22
+    Top = 182
+    Width = 31
     BorderSpacing.Left = 12
     BorderSpacing.Top = 2
     Caption = 'Info'
@@ -142,12 +141,12 @@ object frmAddRadioMemory: TfrmAddRadioMemory
     AnchorSideTop.Control = lblInfo
     AnchorSideTop.Side = asrBottom
     Left = 12
-    Height = 34
-    Top = 178
+    Height = 36
+    Top = 204
     Width = 284
     BorderSpacing.Left = 12
     MaxLength = 25
-    OnKeyDown = FormKeyDown
     TabOrder = 3
+    OnKeyDown = FormKeyDown
   end
 end

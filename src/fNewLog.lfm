@@ -1,24 +1,23 @@
 object frmNewLog: TfrmNewLog
   Left = 390
-  Height = 138
+  Height = 135
   Top = 273
-  Width = 308
+  Width = 331
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'frmNewLog'
-  ClientHeight = 138
-  ClientWidth = 308
+  ClientHeight = 135
+  ClientWidth = 331
+  Position = poMainFormCenter
   OnClose = FormClose
   OnShow = FormShow
-  Position = poMainFormCenter
-  LCLVersion = '2.2.6.0'
   object lblLogNr: TLabel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     Left = 12
-    Height = 17
+    Height = 22
     Top = 6
-    Width = 81
+    Width = 97
     Alignment = taRightJustify
     BorderSpacing.Left = 12
     BorderSpacing.Top = 6
@@ -30,9 +29,9 @@ object frmNewLog: TfrmNewLog
     AnchorSideTop.Control = lblLogNr
     AnchorSideTop.Side = asrBottom
     Left = 12
-    Height = 34
+    Height = 36
     Hint = 'GIve unused log number, or use suggested.'
-    Top = 23
+    Top = 28
     Width = 46
     MaxLength = 3
     NumbersOnly = True
@@ -45,9 +44,9 @@ object frmNewLog: TfrmNewLog
     AnchorSideTop.Control = edtLogNR
     AnchorSideTop.Side = asrBottom
     Left = 12
-    Height = 17
-    Top = 63
-    Width = 68
+    Height = 22
+    Top = 70
+    Width = 80
     BorderSpacing.Top = 6
     Caption = 'Log name:'
     ParentColor = False
@@ -57,9 +56,9 @@ object frmNewLog: TfrmNewLog
     AnchorSideTop.Control = lblLogName
     AnchorSideTop.Side = asrBottom
     Left = 12
-    Height = 34
+    Height = 36
     Hint = 'Give name for new log.'
-    Top = 80
+    Top = 92
     Width = 184
     MaxLength = 50
     ParentShowHint = False
@@ -69,7 +68,7 @@ object frmNewLog: TfrmNewLog
   object btnOK: TButton
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
-    Left = 224
+    Left = 243
     Height = 25
     Top = 6
     Width = 75
@@ -77,14 +76,14 @@ object frmNewLog: TfrmNewLog
     BorderSpacing.Top = 6
     BorderSpacing.Right = 12
     Caption = 'OK'
-    OnClick = btnOKClick
     TabOrder = 2
+    OnClick = btnOKClick
   end
   object btnCancel: TButton
     AnchorSideLeft.Control = btnOK
     AnchorSideTop.Control = btnOK
     AnchorSideTop.Side = asrBottom
-    Left = 224
+    Left = 243
     Height = 25
     Top = 37
     Width = 75
@@ -98,10 +97,10 @@ object frmNewLog: TfrmNewLog
     AnchorSideLeft.Control = lblLogNr
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lblLogNr
-    Left = 111
-    Height = 17
+    Left = 127
+    Height = 22
     Top = 6
-    Width = 98
+    Width = 112
     BorderSpacing.Left = 18
     Caption = 'Copy Cfg from:'
     ParentColor = False
@@ -110,10 +109,10 @@ object frmNewLog: TfrmNewLog
     AnchorSideLeft.Control = lblLogCpyNR
     AnchorSideTop.Control = lblLogCpyNR
     AnchorSideTop.Side = asrBottom
-    Left = 111
-    Height = 34
+    Left = 127
+    Height = 36
     Hint = 'GIve existing log number to copy new log configuration from.'#10'(Configurations are log based)'
-    Top = 23
+    Top = 28
     Width = 46
     MaxLength = 3
     NumbersOnly = True

@@ -1,26 +1,25 @@
 object frmCountyStat: TfrmCountyStat
   Left = 297
-  Height = 590
+  Height = 673
   Top = 30
   Width = 653
   Caption = 'County statistic'
-  ClientHeight = 590
+  ClientHeight = 673
   ClientWidth = 653
   OnClose = FormClose
   OnShow = FormShow
-  LCLVersion = '2.2.6.0'
   object Panel1: TPanel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 0
-    Height = 80
+    Height = 104
     Top = 0
     Width = 653
     Align = alTop
     BevelOuter = bvNone
-    ClientHeight = 80
+    ClientHeight = 104
     ClientWidth = 653
     TabOrder = 0
     object cmbBands: TComboBox
@@ -28,15 +27,15 @@ object frmCountyStat: TfrmCountyStat
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = Panel1
       Left = 55
-      Height = 33
+      Height = 36
       Top = 9
       Width = 164
       BorderSpacing.Left = 6
       BorderSpacing.Top = 9
-      ItemHeight = 0
-      OnChange = cmbBandsChange
+      ItemHeight = 28
       Style = csDropDownList
       TabOrder = 0
+      OnChange = cmbBandsChange
     end
     object Label1: TLabel
       AnchorSideLeft.Control = Panel1
@@ -44,7 +43,7 @@ object frmCountyStat: TfrmCountyStat
       AnchorSideTop.Side = asrCenter
       Left = 12
       Height = 17
-      Top = 17
+      Top = 19
       Width = 37
       AutoSize = False
       BorderSpacing.Left = 12
@@ -56,54 +55,54 @@ object frmCountyStat: TfrmCountyStat
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = cmbBands
       Left = 231
-      Height = 42
+      Height = 61
       Top = 9
       Width = 244
       BorderSpacing.Left = 12
       Caption = ' Confirmed '
-      ClientHeight = 24
-      ClientWidth = 242
+      ClientHeight = 28
+      ClientWidth = 240
       TabOrder = 1
       object chkQSL: TCheckBox
         AnchorSideLeft.Control = GroupBox1
         AnchorSideTop.Control = GroupBox1
         AnchorSideTop.Side = asrCenter
         Left = 6
-        Height = 23
+        Height = 26
         Top = 1
-        Width = 51
+        Width = 54
         BorderSpacing.Left = 6
         Caption = 'QSL'
-        OnChange = cmbBandsChange
         TabOrder = 0
+        OnChange = cmbBandsChange
       end
       object chkLoTW: TCheckBox
         AnchorSideLeft.Control = GroupBox1
         AnchorSideLeft.Side = asrCenter
         AnchorSideTop.Control = GroupBox1
         AnchorSideTop.Side = asrCenter
-        Left = 90
-        Height = 23
+        Left = 87
+        Height = 26
         Top = 1
-        Width = 62
+        Width = 66
         Caption = 'LoTW'
-        OnChange = cmbBandsChange
         TabOrder = 1
+        OnChange = cmbBandsChange
       end
       object chkeQSL: TCheckBox
         AnchorSideTop.Control = GroupBox1
         AnchorSideTop.Side = asrCenter
         AnchorSideRight.Control = GroupBox1
         AnchorSideRight.Side = asrBottom
-        Left = 177
-        Height = 23
+        Left = 171
+        Height = 26
         Top = 1
-        Width = 59
+        Width = 63
         Anchors = [akTop, akRight]
         BorderSpacing.Right = 6
         Caption = 'eQSL'
-        OnChange = cmbBandsChange
         TabOrder = 2
+        OnChange = cmbBandsChange
       end
     end
     object pbTot: TProgressBar
@@ -115,7 +114,7 @@ object frmCountyStat: TfrmCountyStat
       AnchorSideBottom.Side = asrBottom
       Left = 55
       Height = 10
-      Top = 54
+      Top = 57
       Width = 161
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Top = 12
@@ -130,23 +129,23 @@ object frmCountyStat: TfrmCountyStat
       AnchorSideRight.Side = asrBottom
       Left = 485
       Height = 33
-      Top = 14
+      Top = 23
       Width = 156
       Anchors = [akTop, akRight]
       BorderSpacing.Right = 12
       Caption = 'Refresh statistic'
-      OnClick = btnRefreshClick
       TabOrder = 3
+      OnClick = btnRefreshClick
     end
     object lblFIlterActive: TLabel
       AnchorSideLeft.Control = GroupBox1
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = GroupBox1
       AnchorSideTop.Side = asrBottom
-      Left = 305
-      Height = 17
-      Top = 57
-      Width = 96
+      Left = 300
+      Height = 22
+      Top = 76
+      Width = 106
       BorderSpacing.Top = 6
       Caption = 'Filter is active!'
       Font.Color = clRed
@@ -162,7 +161,7 @@ object frmCountyStat: TfrmCountyStat
     AnchorSideBottom.Control = Owner
     Left = 0
     Height = 34
-    Top = 556
+    Top = 639
     Width = 653
     Align = alBottom
     AutoSize = True
@@ -196,8 +195,8 @@ object frmCountyStat: TfrmCountyStat
       Anchors = [akTop, akRight]
       BorderSpacing.Right = 12
       Caption = 'Save to ...'
-      OnClick = btnSaveToClick
       TabOrder = 1
+      OnClick = btnSaveToClick
     end
   end
   object IpHtmlPanel1: TIpHtmlPanel
@@ -207,8 +206,8 @@ object frmCountyStat: TfrmCountyStat
     AnchorSideRight.Control = Panel1
     AnchorSideBottom.Control = Panel2
     Left = 0
-    Height = 476
-    Top = 80
+    Height = 535
+    Top = 104
     Width = 653
     Align = alClient
     BorderWidth = 1
