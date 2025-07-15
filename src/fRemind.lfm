@@ -1,17 +1,16 @@
 object frmReminder: TfrmReminder
   Left = 545
-  Height = 128
+  Height = 154
   Top = 222
   Width = 599
   BorderStyle = bsDialog
   Caption = 'Reminder'
-  ClientHeight = 128
+  ClientHeight = 154
   ClientWidth = 599
+  Position = poScreenCenter
   OnClose = FormClose
   OnKeyUp = FormKeyUp
   OnShow = FormShow
-  Position = poScreenCenter
-  LCLVersion = '1.6.0.4'
   object RemiMemo: TMemo
     AnchorSideLeft.Control = Owner
     AnchorSideLeft.Side = asrCenter
@@ -19,34 +18,34 @@ object frmReminder: TfrmReminder
     AnchorSideBottom.Side = asrBottom
     Left = 8
     Height = 33
-    Top = 91
+    Top = 117
     Width = 582
     Anchors = [akLeft, akBottom]
     BorderSpacing.Bottom = 4
     MaxLength = 255
+    TabOrder = 0
     OnKeyPress = RemiMemoLimit
     OnKeyUp = FormKeyUp
-    TabOrder = 0
   end
   object chRemi: TCheckBox
     AnchorSideLeft.Side = asrCenter
     AnchorSideTop.Side = asrBottom
     Left = 222
-    Height = 24
+    Height = 26
     Top = 30
-    Width = 159
+    Width = 172
     BorderSpacing.Top = 5
     Caption = 'Remind again after '
-    OnChange = chRemiChange
     TabOrder = 1
+    OnChange = chRemiChange
   end
   object lblRemi2: TLabel
     AnchorSideLeft.Control = RemiMemo
     AnchorSideBottom.Control = RemiMemo
     Left = 8
-    Height = 16
-    Top = 73
-    Width = 92
+    Height = 20
+    Top = 95
+    Width = 99
     Anchors = [akLeft, akBottom]
     BorderSpacing.Bottom = 2
     Caption = 'Remember to:'
@@ -61,72 +60,72 @@ object frmReminder: TfrmReminder
     AnchorSideBottom.Control = RemiMemo
     Left = 515
     Height = 25
-    Top = 64
+    Top = 90
     Width = 75
     Anchors = [akRight, akBottom]
     BorderSpacing.Bottom = 2
     Caption = 'Close'
-    OnClick = btCloseClick
     TabOrder = 2
+    OnClick = btCloseClick
   end
   object RemindTimeSet: TMaskEdit
     AnchorSideLeft.Control = chRemi
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = chRemi
-    Left = 381
-    Height = 27
+    Left = 394
+    Height = 36
     Top = 30
     Width = 56
-    CharCase = ecNormal
+    EnableSets = False
     MaxLength = 3
     TabOrder = 3
-    OnEnter = RemindTimeSetEnter
-    OnExit = RemindTimeSetExit
     EditMask = '999;1;0'
     Text = '   '
     SpaceChar = '0'
+    OnEnter = RemindTimeSetEnter
+    OnExit = RemindTimeSetExit
   end
   object lblRemi3: TLabel
     AnchorSideLeft.Control = RemindTimeSet
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = chRemi
     AnchorSideTop.Side = asrCenter
-    Left = 439
-    Height = 17
-    Top = 34
-    Width = 56
+    Left = 452
+    Height = 22
+    Top = 32
+    Width = 62
     BorderSpacing.Left = 2
     Caption = 'minutes'
     ParentColor = False
   end
   object chUTRemi: TCheckBox
     Left = 222
-    Height = 24
-    Top = 64
-    Width = 155
+    Height = 26
+    Top = 72
+    Width = 169
     Caption = 'Remind time (UTC) '
-    OnChange = chUTRemiChange
     TabOrder = 4
+    OnChange = chUTRemiChange
   end
   object RemindUThour: TMaskEdit
-    Left = 376
-    Height = 27
-    Top = 57
+    Left = 394
+    Height = 36
+    Top = 72
     Width = 56
-    CharCase = ecNormal
+    EnableSets = False
     MaxLength = 5
     ParentFont = False
     TabOrder = 5
-    OnChange = RemindUThourChange
     EditMask = '!00\:00;1;-'
     Text = '  :  '
     SpaceChar = '-'
+    OnChange = RemindUThourChange
   end
   object lblRemi1: TLabel
     Left = 0
-    Height = 27
+    Height = 33
     Top = 0
-    Width = 497
+    Width = 500
     Caption = '    Sitting is killing you!  Take a short walk!    '
     Color = clRed
     Font.Color = clYellow
@@ -140,7 +139,7 @@ object frmReminder: TfrmReminder
     Enabled = False
     Interval = 1800000
     OnTimer = tmrRemiTimer
-    left = 75
-    top = 216
+    Left = 75
+    Top = 216
   end
 end

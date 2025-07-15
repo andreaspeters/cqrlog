@@ -1,27 +1,25 @@
 object frmxfldigi: Tfrmxfldigi
   Left = 78
-  Height = 241
+  Height = 304
   Top = 69
   Width = 414
   Caption = 'fldigi xmlrpc monitor'
-  ClientHeight = 241
+  ClientHeight = 304
   ClientWidth = 414
   OnClose = FormClose
   OnCreate = FormCreate
   OnHide = FormHide
   OnShow = FormShow
-  LCLVersion = '2.0.12.0'
   object edtCall: TLabel
     AnchorSideLeft.Control = lblCall
     AnchorSideTop.Control = lblCall
     AnchorSideTop.Side = asrBottom
     Left = 6
-    Height = 15
-    Top = 78
+    Height = 27
+    Top = 101
     Width = 80
     AutoSize = False
     Caption = '-call'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -30,12 +28,11 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lblFreq
     AnchorSideTop.Side = asrBottom
     Left = 98
-    Height = 15
-    Top = 78
+    Height = 27
+    Top = 101
     Width = 70
     AutoSize = False
     Caption = '-Freq'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -44,12 +41,11 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lblMode
     AnchorSideTop.Side = asrBottom
     Left = 180
-    Height = 15
-    Top = 78
+    Height = 27
+    Top = 101
     Width = 100
     AutoSize = False
     Caption = '-Mode'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -58,12 +54,11 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lblRstS
     AnchorSideTop.Side = asrBottom
     Left = 292
-    Height = 15
-    Top = 78
+    Height = 27
+    Top = 101
     Width = 43
     AutoSize = False
     Caption = '-rstS'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -72,14 +67,13 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = edtState
     AnchorSideRight.Side = asrBottom
-    Left = 360
-    Height = 15
-    Top = 78
-    Width = 43
+    Left = 368
+    Height = 27
+    Top = 101
+    Width = 35
     Anchors = [akTop, akRight]
     AutoSize = False
     Caption = '-rstR'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -88,12 +82,11 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lblName
     AnchorSideTop.Side = asrBottom
     Left = 6
-    Height = 15
-    Top = 116
+    Height = 31
+    Top = 156
     Width = 80
     AutoSize = False
     Caption = '-name'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -102,12 +95,11 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lblQth
     AnchorSideTop.Side = asrBottom
     Left = 98
-    Height = 15
-    Top = 116
+    Height = 31
+    Top = 156
     Width = 150
     AutoSize = False
     Caption = '-qth'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -116,12 +108,11 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lblGrid
     AnchorSideTop.Side = asrBottom
     Left = 292
-    Height = 15
-    Top = 116
+    Height = 31
+    Top = 156
     Width = 64
     AutoSize = False
     Caption = '-grid'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -130,12 +121,11 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lblState
     AnchorSideTop.Side = asrBottom
     Left = 368
-    Height = 15
-    Top = 116
+    Height = 31
+    Top = 156
     Width = 35
     AutoSize = False
     Caption = '-st'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -144,12 +134,11 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lblComment
     AnchorSideTop.Side = asrBottom
     Left = 6
-    Height = 15
-    Top = 154
+    Height = 26
+    Top = 215
     Width = 270
     AutoSize = False
     Caption = '-comment QSO'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -158,12 +147,11 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lblCounty
     AnchorSideTop.Side = asrBottom
     Left = 292
-    Height = 15
-    Top = 154
+    Height = 26
+    Top = 215
     Width = 75
     AutoSize = False
     Caption = '-county'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -172,12 +160,11 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lblRig
     AnchorSideTop.Side = asrBottom
     Left = 292
-    Height = 15
-    Top = 190
+    Height = 26
+    Top = 270
     Width = 32
     AutoSize = False
     Caption = '-RX'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -185,10 +172,10 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideLeft.Control = Owner
     AnchorSideLeft.Side = asrCenter
     AnchorSideTop.Control = Owner
-    Left = 101
-    Height = 17
+    Left = 87
+    Height = 22
     Top = 3
-    Width = 212
+    Width = 241
     BorderSpacing.Top = 3
     Caption = 'Data received from fldigi xmlrpc'
     ParentColor = False
@@ -199,25 +186,25 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Side = asrBottom
     Left = 6
     Height = 25
-    Top = 187
+    Top = 259
     Width = 232
     BorderSpacing.Top = 18
     Caption = 'Save this QSO'
     Font.Color = clRed
     Font.Style = [fsBold]
-    OnClick = btSaveQSOClick
     ParentFont = False
     TabOrder = 0
     Visible = False
+    OnClick = btSaveQSOClick
   end
   object lblComment: TLabel
     AnchorSideLeft.Control = lblCall
     AnchorSideTop.Control = edtName
     AnchorSideTop.Side = asrBottom
     Left = 6
-    Height = 17
-    Top = 137
-    Width = 96
+    Height = 22
+    Top = 193
+    Width = 113
     BorderSpacing.Top = 6
     Caption = 'Comment QSO'
     Font.Color = clBlue
@@ -228,9 +215,9 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideLeft.Control = edtGrid
     AnchorSideTop.Control = lblComment
     Left = 292
-    Height = 17
-    Top = 137
-    Width = 46
+    Height = 22
+    Top = 193
+    Width = 55
     Caption = 'County'
     Font.Color = clBlue
     ParentColor = False
@@ -241,8 +228,8 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = edtCounty
     AnchorSideTop.Side = asrBottom
     Left = 292
-    Height = 15
-    Top = 175
+    Height = 23
+    Top = 247
     Width = 32
     AutoSize = False
     BorderSpacing.Top = 6
@@ -256,9 +243,9 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = edtCall
     AnchorSideTop.Side = asrBottom
     Left = 6
-    Height = 17
-    Top = 99
-    Width = 39
+    Height = 22
+    Top = 134
+    Width = 46
     BorderSpacing.Top = 6
     Caption = 'Name'
     Font.Color = clBlue
@@ -269,9 +256,9 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideLeft.Control = edtFreq
     AnchorSideTop.Control = lblName
     Left = 98
-    Height = 17
-    Top = 99
-    Width = 28
+    Height = 22
+    Top = 134
+    Width = 33
     Caption = 'QTH'
     Font.Color = clBlue
     ParentColor = False
@@ -281,9 +268,9 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideLeft.Control = edtRstS
     AnchorSideTop.Control = lblName
     Left = 292
-    Height = 17
-    Top = 99
-    Width = 27
+    Height = 22
+    Top = 134
+    Width = 33
     Caption = 'Grid'
     Font.Color = clBlue
     ParentColor = False
@@ -294,9 +281,9 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lblName
     Left = 368
-    Height = 17
-    Top = 99
-    Width = 34
+    Height = 22
+    Top = 134
+    Width = 39
     BorderSpacing.Left = 12
     Caption = 'State'
     Font.Color = clBlue
@@ -308,9 +295,9 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = edtDate
     AnchorSideTop.Side = asrBottom
     Left = 6
-    Height = 17
-    Top = 61
-    Width = 25
+    Height = 22
+    Top = 79
+    Width = 28
     BorderSpacing.Top = 3
     Caption = 'Call'
     Font.Color = clBlue
@@ -322,9 +309,9 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lblCall
     Left = 98
-    Height = 17
-    Top = 61
-    Width = 28
+    Height = 22
+    Top = 79
+    Width = 34
     BorderSpacing.Left = 12
     Caption = 'Freq'
     Font.Color = clBlue
@@ -336,9 +323,9 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lblCall
     Left = 180
-    Height = 17
-    Top = 61
-    Width = 36
+    Height = 22
+    Top = 79
+    Width = 44
     BorderSpacing.Left = 12
     Caption = 'Mode'
     Font.Color = clBlue
@@ -350,9 +337,9 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lblCall
     Left = 292
-    Height = 17
-    Top = 61
-    Width = 30
+    Height = 22
+    Top = 79
+    Width = 35
     BorderSpacing.Left = 12
     Caption = 'RSTs'
     Font.Color = clBlue
@@ -362,10 +349,10 @@ object frmxfldigi: Tfrmxfldigi
   object lblRstR: TLabel
     AnchorSideLeft.Control = edtRstR
     AnchorSideTop.Control = lblCall
-    Left = 360
-    Height = 17
-    Top = 61
-    Width = 29
+    Left = 368
+    Height = 22
+    Top = 79
+    Width = 34
     Caption = 'RSTr'
     Font.Color = clBlue
     ParentColor = False
@@ -376,9 +363,9 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lbHeader
     AnchorSideTop.Side = asrBottom
     Left = 6
-    Height = 17
-    Top = 26
-    Width = 31
+    Height = 22
+    Top = 31
+    Width = 36
     BorderSpacing.Left = 6
     BorderSpacing.Top = 6
     Caption = 'Date'
@@ -389,9 +376,9 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lblDate
     Left = 98
-    Height = 17
-    Top = 26
-    Width = 50
+    Height = 22
+    Top = 31
+    Width = 60
     BorderSpacing.Left = 12
     Caption = 'TimeOn'
     ParentColor = False
@@ -401,9 +388,9 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lblDate
     Left = 180
-    Height = 17
-    Top = 26
-    Width = 52
+    Height = 22
+    Top = 31
+    Width = 62
     BorderSpacing.Left = 12
     Caption = 'TimeOff'
     ParentColor = False
@@ -413,12 +400,11 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lblDate
     AnchorSideTop.Side = asrBottom
     Left = 6
-    Height = 15
-    Top = 43
+    Height = 23
+    Top = 53
     Width = 80
     AutoSize = False
     Caption = '-date'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -427,12 +413,11 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lblTimeOn
     AnchorSideTop.Side = asrBottom
     Left = 98
-    Height = 15
-    Top = 43
+    Height = 23
+    Top = 53
     Width = 70
     AutoSize = False
     Caption = '-timeon'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end
@@ -441,12 +426,11 @@ object frmxfldigi: Tfrmxfldigi
     AnchorSideTop.Control = lblTimeOff
     AnchorSideTop.Side = asrBottom
     Left = 180
-    Height = 15
-    Top = 43
+    Height = 23
+    Top = 53
     Width = 70
     AutoSize = False
     Caption = '-timeoff'
-    Color = clDefault
     ParentColor = False
     Transparent = False
   end

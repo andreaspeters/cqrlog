@@ -1,15 +1,15 @@
 object frmSearch: TfrmSearch
   Left = 547
-  Height = 362
+  Height = 450
   Top = 243
-  Width = 288
+  Width = 286
   HorzScrollBar.Page = 236
   VertScrollBar.Page = 120
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'Search '
-  ClientHeight = 362
-  ClientWidth = 288
+  ClientHeight = 450
+  ClientWidth = 286
   Icon.Data = {
     BE0C00000000010001002020000001001800A80C000016000000280000002000
     0000400000000100180000000000000C00006400000064000000000000000000
@@ -115,70 +115,69 @@ object frmSearch: TfrmSearch
     7FFF0000FFFF0001FFFF0003FFFF0007FFFF001FFFFF003FFFFF00FFFFFF83FF
     FFFF
   }
+  Position = poMainFormCenter
   OnCloseQuery = FormCloseQuery
   OnShow = FormShow
-  Position = poMainFormCenter
-  LCLVersion = '0.9.30.2'
   object GroupBox1: TGroupBox
     Left = 0
-    Height = 136
-    Top = 90
-    Width = 288
+    Height = 166
+    Top = 114
+    Width = 286
     Align = alTop
     Caption = ' Search '
-    ClientHeight = 104
-    ClientWidth = 284
+    ClientHeight = 133
+    ClientWidth = 282
     TabOrder = 0
     object cmbSearch: TComboBox
       Left = 8
-      Height = 22
+      Height = 36
       Top = 23
       Width = 248
-      ItemHeight = 0
-      OnChange = cmbSearchChange
+      ItemHeight = 34
       TabOrder = 0
       Text = 'cmbSearch'
+      OnChange = cmbSearchChange
     end
     object edtText: TEdit
       Left = 8
-      Height = 22
-      Top = 79
+      Height = 36
+      Top = 88
       Width = 248
-      OnKeyPress = edtTextKeyPress
       TabOrder = 1
+      OnKeyPress = edtTextKeyPress
     end
     object Label1: TLabel
       Left = 8
-      Height = 17
+      Height = 22
       Top = 63
-      Width = 36
+      Width = 44
       Caption = 'What:'
       ParentColor = False
     end
     object Label2: TLabel
       Left = 8
-      Height = 17
+      Height = 22
       Top = 7
-      Width = 44
+      Width = 54
       Caption = 'Where:'
       ParentColor = False
     end
   end
   object grbOptions: TGroupBox
     Left = 0
-    Height = 102
-    Top = 226
-    Width = 288
+    Height = 110
+    Top = 280
+    Width = 286
     Align = alTop
     Caption = ' Options '
-    ClientHeight = 70
-    ClientWidth = 284
+    ClientHeight = 77
+    ClientWidth = 282
     TabOrder = 1
     object chkInclude: TCheckBox
       Left = 8
       Height = 26
       Top = 7
-      Width = 72
+      Width = 80
       Caption = 'Include'
       TabOrder = 0
     end
@@ -186,16 +185,16 @@ object frmSearch: TfrmSearch
       Left = 8
       Height = 26
       Top = 35
-      Width = 178
+      Width = 207
       Caption = 'Always sort by QSO date'
       TabOrder = 1
     end
   end
   object mHelp: TMemo
     Left = 0
-    Height = 90
+    Height = 114
     Top = 0
-    Width = 288
+    Width = 286
     Align = alTop
     Enabled = False
     Lines.Strings = (
@@ -206,12 +205,12 @@ object frmSearch: TfrmSearch
   object Panel1: TPanel
     Left = 0
     Height = 34
-    Top = 328
-    Width = 288
+    Top = 416
+    Width = 286
     Align = alBottom
     BevelOuter = bvNone
     ClientHeight = 34
-    ClientWidth = 288
+    ClientWidth = 286
     TabOrder = 3
     object btnSearch: TButton
       Left = 8
@@ -220,8 +219,8 @@ object frmSearch: TfrmSearch
       Width = 75
       BorderSpacing.InnerBorder = 4
       Caption = 'Search'
-      OnClick = btnSearchClick
       TabOrder = 0
+      OnClick = btnSearchClick
     end
     object btnCancel: TButton
       Left = 205

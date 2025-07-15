@@ -1,25 +1,24 @@
 object frmSplitSettings: TfrmSplitSettings
   Left = 668
-  Height = 357
+  Height = 386
   Top = 174
   Width = 299
   ActiveControl = cmbSplit1
   BorderIcons = [biSystemMenu]
   BorderStyle = bsDialog
   Caption = 'Split settings'
-  ClientHeight = 357
+  ClientHeight = 386
   ClientWidth = 299
-  OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '2.0.8.0'
+  OnShow = FormShow
   object lbl1: TLabel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = edtSplit1
     AnchorSideTop.Side = asrCenter
     Left = 6
-    Height = 15
-    Top = 15
-    Width = 52
+    Height = 22
+    Top = 13
+    Width = 56
     BorderSpacing.Left = 6
     Caption = 'CTRL+1'
     ParentColor = False
@@ -28,10 +27,10 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit1
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lbl1
-    Left = 158
-    Height = 15
-    Top = 15
-    Width = 17
+    Left = 162
+    Height = 22
+    Top = 13
+    Width = 20
     BorderSpacing.Left = 6
     Caption = 'Hz'
     ParentColor = False
@@ -41,9 +40,9 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideTop.Control = edtSplit2
     AnchorSideTop.Side = asrCenter
     Left = 6
-    Height = 15
-    Top = 48
-    Width = 52
+    Height = 22
+    Top = 49
+    Width = 56
     Caption = 'CTRL+2'
     ParentColor = False
   end
@@ -51,10 +50,10 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit2
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lbl2
-    Left = 158
-    Height = 15
-    Top = 48
-    Width = 17
+    Left = 162
+    Height = 22
+    Top = 49
+    Width = 20
     BorderSpacing.Left = 6
     Caption = 'Hz'
     ParentColor = False
@@ -64,9 +63,9 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideTop.Control = edtSplit3
     AnchorSideTop.Side = asrCenter
     Left = 6
-    Height = 15
-    Top = 81
-    Width = 52
+    Height = 22
+    Top = 85
+    Width = 56
     Caption = 'CTRL+3'
     ParentColor = False
   end
@@ -74,10 +73,10 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit3
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lbl3
-    Left = 158
-    Height = 15
-    Top = 81
-    Width = 17
+    Left = 162
+    Height = 22
+    Top = 85
+    Width = 20
     BorderSpacing.Left = 6
     Caption = 'Hz'
     ParentColor = False
@@ -87,9 +86,9 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideTop.Control = edtSplit4
     AnchorSideTop.Side = asrCenter
     Left = 6
-    Height = 15
-    Top = 114
-    Width = 52
+    Height = 22
+    Top = 121
+    Width = 56
     Caption = 'CTRL+4'
     ParentColor = False
   end
@@ -97,10 +96,10 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit4
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lbl4
-    Left = 158
-    Height = 15
-    Top = 114
-    Width = 17
+    Left = 162
+    Height = 22
+    Top = 121
+    Width = 20
     BorderSpacing.Left = 6
     Caption = 'Hz'
     ParentColor = False
@@ -110,9 +109,9 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideTop.Control = edtSplit5
     AnchorSideTop.Side = asrCenter
     Left = 6
-    Height = 15
-    Top = 147
-    Width = 52
+    Height = 22
+    Top = 157
+    Width = 56
     Caption = 'CTRL+5'
     ParentColor = False
   end
@@ -120,10 +119,10 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit5
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lbl5
-    Left = 158
-    Height = 15
-    Top = 147
-    Width = 17
+    Left = 162
+    Height = 22
+    Top = 157
+    Width = 20
     BorderSpacing.Left = 6
     Caption = 'Hz'
     ParentColor = False
@@ -133,9 +132,9 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideTop.Control = edtSplit6
     AnchorSideTop.Side = asrCenter
     Left = 6
-    Height = 15
-    Top = 180
-    Width = 52
+    Height = 22
+    Top = 193
+    Width = 56
     Caption = 'CTRL+6'
     ParentColor = False
   end
@@ -143,10 +142,10 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit6
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lbl6
-    Left = 158
-    Height = 15
-    Top = 180
-    Width = 17
+    Left = 162
+    Height = 22
+    Top = 193
+    Width = 20
     BorderSpacing.Left = 6
     Caption = 'Hz'
     ParentColor = False
@@ -156,9 +155,9 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideTop.Control = edtSplit7
     AnchorSideTop.Side = asrCenter
     Left = 6
-    Height = 15
-    Top = 213
-    Width = 52
+    Height = 22
+    Top = 229
+    Width = 56
     Caption = 'CTRL+7'
     ParentColor = False
   end
@@ -166,10 +165,10 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit7
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lbl7
-    Left = 158
-    Height = 15
-    Top = 213
-    Width = 17
+    Left = 162
+    Height = 22
+    Top = 229
+    Width = 20
     BorderSpacing.Left = 6
     Caption = 'Hz'
     ParentColor = False
@@ -179,9 +178,9 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideTop.Control = edtSplit8
     AnchorSideTop.Side = asrCenter
     Left = 6
-    Height = 15
-    Top = 246
-    Width = 52
+    Height = 22
+    Top = 265
+    Width = 56
     Caption = 'CTRL+8'
     ParentColor = False
   end
@@ -189,10 +188,10 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit8
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lbl8
-    Left = 158
-    Height = 15
-    Top = 246
-    Width = 17
+    Left = 162
+    Height = 22
+    Top = 265
+    Width = 20
     BorderSpacing.Left = 6
     Caption = 'Hz'
     ParentColor = False
@@ -201,15 +200,13 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = lbl1
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Owner
-    Left = 64
-    Height = 33
+    Left = 68
+    Height = 36
     Top = 6
     Width = 88
     BorderSpacing.Left = 6
     BorderSpacing.Top = 6
     MaxValue = 9999
-    MinValue = 0
-    Value = 0
     TabOrder = 0
   end
   object cmbSplit1: TComboBox
@@ -217,12 +214,12 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lblH1
     AnchorSideTop.Side = asrCenter
-    Left = 181
-    Height = 33
+    Left = 188
+    Height = 36
     Top = 6
     Width = 100
     BorderSpacing.Left = 6
-    ItemHeight = 0
+    ItemHeight = 28
     ItemIndex = 0
     Items.Strings = (
       'UP'
@@ -235,24 +232,22 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit1
     AnchorSideTop.Control = edtSplit1
     AnchorSideTop.Side = asrBottom
-    Left = 64
-    Height = 33
-    Top = 39
+    Left = 68
+    Height = 36
+    Top = 42
     Width = 88
     MaxValue = 9999
-    MinValue = 0
-    Value = 0
     TabOrder = 2
   end
   object cmbSplit2: TComboBox
     AnchorSideLeft.Control = cmbSplit1
     AnchorSideTop.Control = lblH2
     AnchorSideTop.Side = asrCenter
-    Left = 181
-    Height = 33
-    Top = 39
+    Left = 188
+    Height = 36
+    Top = 42
     Width = 100
-    ItemHeight = 0
+    ItemHeight = 28
     ItemIndex = 0
     Items.Strings = (
       'UP'
@@ -265,24 +260,22 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit2
     AnchorSideTop.Control = edtSplit2
     AnchorSideTop.Side = asrBottom
-    Left = 64
-    Height = 33
-    Top = 72
+    Left = 68
+    Height = 36
+    Top = 78
     Width = 88
     MaxValue = 9999
-    MinValue = 0
-    Value = 0
     TabOrder = 4
   end
   object cmbSplit3: TComboBox
     AnchorSideLeft.Control = cmbSplit2
     AnchorSideTop.Control = lblH3
     AnchorSideTop.Side = asrCenter
-    Left = 181
-    Height = 33
-    Top = 72
+    Left = 188
+    Height = 36
+    Top = 78
     Width = 100
-    ItemHeight = 0
+    ItemHeight = 28
     ItemIndex = 0
     Items.Strings = (
       'UP'
@@ -295,24 +288,22 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit3
     AnchorSideTop.Control = edtSplit3
     AnchorSideTop.Side = asrBottom
-    Left = 64
-    Height = 33
-    Top = 105
+    Left = 68
+    Height = 36
+    Top = 114
     Width = 88
     MaxValue = 9999
-    MinValue = 0
-    Value = 0
     TabOrder = 6
   end
   object cmbSplit4: TComboBox
     AnchorSideLeft.Control = cmbSplit3
     AnchorSideTop.Control = lblH4
     AnchorSideTop.Side = asrCenter
-    Left = 181
-    Height = 33
-    Top = 105
+    Left = 188
+    Height = 36
+    Top = 114
     Width = 100
-    ItemHeight = 0
+    ItemHeight = 28
     ItemIndex = 0
     Items.Strings = (
       'UP'
@@ -325,24 +316,22 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit4
     AnchorSideTop.Control = edtSplit4
     AnchorSideTop.Side = asrBottom
-    Left = 64
-    Height = 33
-    Top = 138
+    Left = 68
+    Height = 36
+    Top = 150
     Width = 88
     MaxValue = 9999
-    MinValue = 0
-    Value = 0
     TabOrder = 8
   end
   object cmbSplit5: TComboBox
     AnchorSideLeft.Control = cmbSplit4
     AnchorSideTop.Control = lblH5
     AnchorSideTop.Side = asrCenter
-    Left = 181
-    Height = 33
-    Top = 138
+    Left = 188
+    Height = 36
+    Top = 150
     Width = 100
-    ItemHeight = 0
+    ItemHeight = 28
     ItemIndex = 0
     Items.Strings = (
       'UP'
@@ -355,24 +344,22 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit5
     AnchorSideTop.Control = edtSplit5
     AnchorSideTop.Side = asrBottom
-    Left = 64
-    Height = 33
-    Top = 171
+    Left = 68
+    Height = 36
+    Top = 186
     Width = 88
     MaxValue = 9999
-    MinValue = 0
-    Value = 0
     TabOrder = 10
   end
   object cmbSplit6: TComboBox
     AnchorSideLeft.Control = cmbSplit5
     AnchorSideTop.Control = lblH6
     AnchorSideTop.Side = asrCenter
-    Left = 181
-    Height = 33
-    Top = 171
+    Left = 188
+    Height = 36
+    Top = 186
     Width = 100
-    ItemHeight = 0
+    ItemHeight = 28
     ItemIndex = 0
     Items.Strings = (
       'UP'
@@ -385,24 +372,22 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit6
     AnchorSideTop.Control = edtSplit6
     AnchorSideTop.Side = asrBottom
-    Left = 64
-    Height = 33
-    Top = 204
+    Left = 68
+    Height = 36
+    Top = 222
     Width = 88
     MaxValue = 9999
-    MinValue = 0
-    Value = 0
     TabOrder = 12
   end
   object cmbSplit7: TComboBox
     AnchorSideLeft.Control = cmbSplit6
     AnchorSideTop.Control = lblH7
     AnchorSideTop.Side = asrCenter
-    Left = 181
-    Height = 33
-    Top = 204
+    Left = 188
+    Height = 36
+    Top = 222
     Width = 100
-    ItemHeight = 0
+    ItemHeight = 28
     ItemIndex = 0
     Items.Strings = (
       'UP'
@@ -415,24 +400,22 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit7
     AnchorSideTop.Control = edtSplit7
     AnchorSideTop.Side = asrBottom
-    Left = 64
-    Height = 33
-    Top = 237
+    Left = 68
+    Height = 36
+    Top = 258
     Width = 88
     MaxValue = 9999
-    MinValue = 0
-    Value = 0
     TabOrder = 14
   end
   object cmbSplit8: TComboBox
     AnchorSideLeft.Control = cmbSplit7
     AnchorSideTop.Control = lblH8
     AnchorSideTop.Side = asrCenter
-    Left = 181
-    Height = 33
-    Top = 237
+    Left = 188
+    Height = 36
+    Top = 258
     Width = 100
-    ItemHeight = 0
+    ItemHeight = 28
     ItemIndex = 0
     Items.Strings = (
       'UP'
@@ -445,23 +428,23 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit9
     AnchorSideTop.Control = edtSplit9
     AnchorSideTop.Side = asrBottom
-    Left = 64
+    Left = 68
     Height = 25
-    Top = 321
+    Top = 348
     Width = 75
     BorderSpacing.Top = 18
     Caption = 'OK'
-    OnClick = btnOKClick
     TabOrder = 18
+    OnClick = btnOKClick
   end
   object btnCancel: TButton
     AnchorSideLeft.Control = cmbSplit9
     AnchorSideTop.Control = cmbSplit9
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Side = asrBottom
-    Left = 181
+    Left = 188
     Height = 25
-    Top = 321
+    Top = 348
     Width = 75
     BorderSpacing.Top = 18
     Cancel = True
@@ -474,9 +457,9 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideTop.Control = edtSplit9
     AnchorSideTop.Side = asrCenter
     Left = 6
-    Height = 15
-    Top = 279
-    Width = 52
+    Height = 22
+    Top = 301
+    Width = 56
     Caption = 'CTRL+9'
     ParentColor = False
   end
@@ -484,10 +467,10 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit9
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = lbl9
-    Left = 158
-    Height = 15
-    Top = 279
-    Width = 17
+    Left = 162
+    Height = 22
+    Top = 301
+    Width = 20
     BorderSpacing.Left = 6
     Caption = 'Hz'
     ParentColor = False
@@ -496,24 +479,22 @@ object frmSplitSettings: TfrmSplitSettings
     AnchorSideLeft.Control = edtSplit8
     AnchorSideTop.Control = edtSplit8
     AnchorSideTop.Side = asrBottom
-    Left = 64
-    Height = 33
-    Top = 270
+    Left = 68
+    Height = 36
+    Top = 294
     Width = 88
     MaxValue = 9999
-    MinValue = 0
-    Value = 0
     TabOrder = 16
   end
   object cmbSplit9: TComboBox
     AnchorSideLeft.Control = cmbSplit8
     AnchorSideTop.Control = lblH9
     AnchorSideTop.Side = asrCenter
-    Left = 181
-    Height = 33
-    Top = 270
+    Left = 188
+    Height = 36
+    Top = 294
     Width = 100
-    ItemHeight = 0
+    ItemHeight = 28
     ItemIndex = 0
     Items.Strings = (
       'UP'

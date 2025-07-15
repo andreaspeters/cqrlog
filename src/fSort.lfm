@@ -2,13 +2,13 @@ object frmSort: TfrmSort
   Left = 379
   Height = 165
   Top = 275
-  Width = 190
+  Width = 191
   HorzScrollBar.Page = 133
   VertScrollBar.Page = 351
   ActiveControl = btnDateTime
   Caption = 'Sorting ...'
   ClientHeight = 165
-  ClientWidth = 190
+  ClientWidth = 191
   Icon.Data = {
     BE0C00000000010001002020000001001800A80C000016000000280000002000
     0000400000000100180000000000000C00006400000064000000000000000000
@@ -114,9 +114,8 @@ object frmSort: TfrmSort
     7FFF0000FFFF0001FFFF0003FFFF0007FFFF001FFFFF003FFFFF00FFFFFF83FF
     FFFF
   }
-  OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '1.6.4.0'
+  OnShow = FormShow
   object btnDateTime: TButton
     Left = 16
     Height = 25
@@ -124,8 +123,8 @@ object frmSort: TfrmSort
     Width = 161
     BorderSpacing.InnerBorder = 4
     Caption = '&Date + time'
-    OnClick = btnDateTimeClick
     TabOrder = 3
+    OnClick = btnDateTimeClick
   end
   object btnDateTimeAsc: TButton
     Left = 16
@@ -134,8 +133,8 @@ object frmSort: TfrmSort
     Width = 160
     BorderSpacing.InnerBorder = 4
     Caption = 'Date + time &Ascending'
-    OnClick = btnDateTimeClickAsc
     TabOrder = 0
+    OnClick = btnDateTimeClickAsc
   end
   object btnCall: TButton
     Left = 16
@@ -144,8 +143,8 @@ object frmSort: TfrmSort
     Width = 160
     BorderSpacing.InnerBorder = 4
     Caption = '&Call'
-    OnClick = btnCallClick
     TabOrder = 1
+    OnClick = btnCallClick
   end
   object btnClose: TButton
     Left = 48
