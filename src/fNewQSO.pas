@@ -404,6 +404,7 @@ type
     procedure acReminderExecute(Sender: TObject);
     procedure acRemoteModeJS8CallExecute(Sender: TObject);
     procedure acRemoteWsjtExecute(Sender: TObject);
+    procedure acRemoteJS8CallExecute(Sender: TObject);
     procedure acRotControlExecute(Sender: TObject);
     procedure acSCPExecute(Sender : TObject);
     procedure acSendSpotExecute(Sender : TObject);
@@ -4659,6 +4660,14 @@ begin
     GoToRemoteMode(rmtWsjt)
 end;
 
+procedure TfrmNewQSO.acRemoteJS8CallExecute(Sender: TObject);
+begin
+  if mnuRemoteModeJS8Call.Checked then
+    DisableRemoteMode
+  else
+    GoToRemoteMode(rmtJS8Call)
+end;
+
 procedure TfrmNewQSO.acRotControlExecute(Sender: TObject);
 begin
   frmRotControl.Show
@@ -7597,15 +7606,15 @@ begin
                   if dmData.DebugLevel>=1 then Writeln('Reuse enabled!');
                   try
                     //fix these in preferences
-                    ADIFSock.bind(cqrini.ReadString('n1mm','ip','127.0.0.1'),cqrini.ReadString('n1mm','port','2333'));
-                    if dmData.DebugLevel>=1 then Writeln('Bind issued '+cqrini.ReadString('n1mm','ip','127.0.0.1')+
-                                                                        ':'+cqrini.ReadString('n1mm','port','2333'));
+                    ADIFSock.bind(cqrini.ReadString('adif','ip','127.0.0.1'),cqrini.ReadString('adif','port','2333'));
+                    if dmData.DebugLevel>=1 then Writeln('Bind issued '+cqrini.ReadString('adif','ip','127.0.0.1')+
+                                                                        ':'+cqrini.ReadString('adif','port','2333'));
                      // On bind failure try to rebind every second
                      while ((ADIFSock.LastError <> 0) and (tries > 0 )) do
                        begin
                          dec(tries);
                          sleep(1000);
-                         ADIFSock.bind(cqrini.ReadString('n1mm','ip','127.0.0.1'),cqrini.ReadString('n1mm','port','2333'));
+                         ADIFSock.bind(cqrini.ReadString('adif','ip','127.0.0.1'),cqrini.ReadString('n1mm','port','2333'));
                        end;
                      tmrADIF.Enabled  := True;
                   except
@@ -7637,15 +7646,15 @@ begin
                   if dmData.DebugLevel>=1 then Writeln('Reuse enabled!');
                   try
                     //fix these in preferences
-                    ADIFSock.bind(cqrini.ReadString('n1mm','ip','127.0.0.1'),cqrini.ReadString('n1mm','port','2333'));
-                    if dmData.DebugLevel>=1 then Writeln('Bind issued '+cqrini.ReadString('n1mm','ip','127.0.0.1')+
-                                                                        ':'+cqrini.ReadString('n1mm','port','2333'));
+                    ADIFSock.bind(cqrini.ReadString('js8call','ip','127.0.0.1'),cqrini.ReadString('js8call','port','2444'));
+                    if dmData.DebugLevel>=1 then Writeln('Bind issued '+cqrini.ReadString('js8call','ip','127.0.0.1')+
+                                                                        ':'+cqrini.ReadString('js8call','port','2444'));
                      // On bind failure try to rebind every second
                      while ((ADIFSock.LastError <> 0) and (tries > 0 )) do
                        begin
                          dec(tries);
                          sleep(1000);
-                         ADIFSock.bind(cqrini.ReadString('n1mm','ip','127.0.0.1'),cqrini.ReadString('n1mm','port','2333'));
+                         ADIFSock.bind(cqrini.ReadString('js8call','ip','127.0.0.1'),cqrini.ReadString('js8call','port','2444'));
                        end;
                      tmrADIF.Enabled  := True;
                   except

@@ -60,6 +60,7 @@ type
     btnLoadFirst: TButton;
     btnHelp: TButton;
     btnSelectBandFont: TButton;
+    btnJS8CallPath: TButton;
     Button1: TButton;
     Button2: TButton;
     btnTestXplanet: TButton;
@@ -107,6 +108,7 @@ type
     cb30cm: TCheckBox;
     cgLimit: TCheckGroup;
     cbNoKeyerReset: TCheckBox;
+    chkRunJS8Call: TCheckBox;
     chkUdUpEnabled: TCheckBox;
     chkUdUpOnline: TCheckBox;
     chkUdIncExch: TCheckBox;
@@ -443,6 +445,8 @@ type
     DateEditCall: TDateEdit;
     DateEditLoc: TDateEdit;
     dlgColor : TColorDialog;
+    edtJS8CallIp: TEdit;
+    edtJS8CallPort: TEdit;
     edtCbQRZPass: TEdit;
     edtCbQRZCQPass: TEdit;
     edtCbQRZUser: TEdit;
@@ -483,6 +487,7 @@ type
     edtRot2Host: TEdit;
     edtRotor2: TEdit;
     edtMailingAddress: TEdit;
+    edtJS8CallPath: TEdit;
     edtZipCity: TEdit;
     edtStartConCmd: TEdit;
     edtDropSyncErr: TSpinEdit;
@@ -623,6 +628,8 @@ type
     gbOffsets: TGroupBox;
     GroupBox34: TGroupBox;
     GroupBox47: TGroupBox;
+    GroupBox54: TGroupBox;
+    GroupBox55: TGroupBox;
     grpUsrDigitalModes: TGroupBox;
     gbeQSL: TGroupBox;
     grbRigBandWidths: TGroupBox;
@@ -658,6 +665,9 @@ type
     Label13: TLabel;
     Label193: TLabel;
     Label194: TLabel;
+    Label203: TLabel;
+    lblJS8Calladdr: TLabel;
+    lblJS8Callport: TLabel;
     lblGCBeamWidth: TLabel;
     lblGCBeamLength: TLabel;
     lblGC_BP_Color: TLabel;
@@ -975,6 +985,7 @@ type
     procedure btnChangeDefModeClick(Sender: TObject);
     procedure btnHelp1Click(Sender: TObject);
     procedure btnWsjtPathClick(Sender: TObject);
+    procedure btnJS8CallPathClick(Sender: TObject);
     procedure btnFldigiPathClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -1508,8 +1519,14 @@ begin
   cqrini.WriteBool('wsjt','wb4CLoc', cgLimit.Checked[1]);
   cqrini.WriteBool('wsjt', 'chkLoTWeQSL', chkwsjtLoeQ.Checked);
 
-  cqrini.WriteString('n1mm','port',edtADIFPort.Text);
-  cqrini.WriteString('n1mm','ip',edtADIFIp.Text);
+  cqrini.WriteString('adif','port',edtADIFPort.Text);
+  cqrini.WriteString('adif','ip',edtADIFIp.Text);
+
+  cqrini.WriteString('js8call','port',edtJS8CallPort.Text);
+  cqrini.WriteString('js8call','ip',edtJS8CallIp.Text);
+  cqrini.WriteString('js8call','path',edtJS8CallPath.Text);
+  cqrini.WriteBool('js8call','run',chkRunJS8Call.Checked);
+
 
   if edtBackupPath.Text <> '' then
     if edtBackupPath.Text[Length(edtBackupPath.Text)] <> PathDelim then
@@ -2119,6 +2136,16 @@ begin
   if dlgOpen.Execute then
     if FileExists(dlgOpen.FileName) then  //with QT5 opendialog user can enter filename that may not exist
       edtWsjtPath.Text := dlgOpen.FileName
+    else
+        ShowMessage('File not found!');
+end;
+
+procedure TfrmPreferences.btnJS8CallPathClick(Sender: TObject);
+begin
+  dlgOpen.Title := 'Locate js8call binary ...';
+  if dlgOpen.Execute then
+    if FileExists(dlgOpen.FileName) then
+      edtJS8CallPath.Text := dlgOpen.FileName
     else
         ShowMessage('File not found!');
 end;
@@ -3181,8 +3208,13 @@ begin
   cgLimit.Checked[0] := cqrini.ReadBool('wsjt','wb4CCall', False);
   cgLimit.Checked[1] := cqrini.ReadBool('wsjt','wb4CLoc', False);
 
-  edtADIFPort.Text         := cqrini.ReadString('n1mm','port','2333');
-  edtADIFIp.Text           := cqrini.ReadString('n1mm','ip','127.0.0.1');
+  edtADIFPort.Text         := cqrini.ReadString('adif','port','2333');
+  edtADIFIp.Text           := cqrini.ReadString('adif','ip','127.0.0.1');
+
+  edtJS8CallPath.Text         := cqrini.ReadString('js8call','path','');
+  edtJS8CallPort.Text         := cqrini.ReadString('js8call','port','2444');
+  edtJS8CallIp.Text           := cqrini.ReadString('js8call','ip','127.0.0.1');
+  chkRunJS8Call.Checked       := cqrini.ReadBool('js8call','run',False);
 
 
   chkEnableBackup.Checked := cqrini.ReadBool('Backup', 'Enable', False);
