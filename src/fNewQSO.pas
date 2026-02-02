@@ -32,7 +32,7 @@ const
   cCntyVersionCheckUrl = 'http://www.ok2cqr.com/linux/cqrlog/ctyfiles/ver.dat';
 
 type
-  TRemoteModeType = (rmtFldigi, rmtWsjt, rmtADIF);
+  TRemoteModeType = (rmtFldigi, rmtWsjt, rmtADIF, rmtJS8Call);
 
 
 type
@@ -83,6 +83,7 @@ type
     acContest: TAction;
     acRemoteModeADIF: TAction;
     acCounty: TAction;
+    acRemoteModeJS8Call: TAction;
     acUploadToAll: TAction;
     acUploadToHrdLog: TAction;
     acUploadToClubLog: TAction;
@@ -146,6 +147,9 @@ type
     MenuItem63: TMenuItem;
     MenuItem84: TMenuItem;
     MenuItem94 : TMenuItem;
+    MenuItem95: TMenuItem;
+    MenuItem96: TMenuItem;
+    mnuRemoteModeJS8Call: TMenuItem;
     mnueQSLView: TMenuItem;
     mnuRemoteModeADIF: TMenuItem;
     mnuReminder: TMenuItem;
@@ -398,6 +402,7 @@ type
     procedure acRefreshTRXExecute(Sender: TObject);
     procedure acReloadCWExecute(Sender: TObject);
     procedure acReminderExecute(Sender: TObject);
+    procedure acRemoteModeJS8CallExecute(Sender: TObject);
     procedure acRemoteWsjtExecute(Sender: TObject);
     procedure acRotControlExecute(Sender: TObject);
     procedure acSCPExecute(Sender : TObject);
@@ -4638,6 +4643,14 @@ begin
   frmReminder.OpenReminder;
 end;
 
+procedure TfrmNewQSO.acRemoteModeJS8CallExecute(Sender: TObject);
+begin
+  if mnuRemoteModeJS8Call.Checked then
+   DisableRemoteMode
+ else
+   GoToRemoteMode(rmtJS8Call)
+end;
+
 procedure TfrmNewQSO.acRemoteWsjtExecute(Sender: TObject);
 begin
   if mnuRemoteModeWsjt.Checked then
@@ -7439,6 +7452,7 @@ Begin
                'J' :  GoToRemoteMode(rmtWsjt);
                'M' :  GoToRemoteMode(rmtFldigi);
                'K' :  GoToRemoteMode(rmtADIF);
+               'L' :  GoToRemoteMode(rmtJS8Call);
            end;
          end;
      end;
@@ -7456,10 +7470,12 @@ begin
     rmtFldigi : begin
                   RememberAutoMode := chkAutoMode.Checked;
                   chkAutoMode.Checked   := False;
-                  if mnuRemoteModeWsjt.Checked then       //not both on at same time
+                  if mnuRemoteModeWsjt.Checked then         //not both on at same time
                      DisableRemoteMode;
-                  if mnuRemoteModeADIF.Checked then          //not both on at same time
-                        DisableRemoteMode;
+                  if mnuRemoteModeADIF.Checked then         //not both on at same time
+                     DisableRemoteMode;
+                  if mnuRemoteModeJS8Call.Checked then      //not both on at same time
+                     DisableRemoteMode;
                   mnuRemoteMode.Checked := True;
                   AnyRemoteOn := True;
                   lblCall.Caption       := 'Fldigi remote';
@@ -7476,9 +7492,11 @@ begin
                   RememberAutoMode := chkAutoMode.Checked;
                   chkAutoMode.Checked   := False;
                   if mnuRemoteMode.Checked then          //not both on at same time
-                  DisableRemoteMode;
+                     DisableRemoteMode;
                   if mnuRemoteModeADIF.Checked then          //not both on at same time
-                        DisableRemoteMode;
+                     DisableRemoteMode;
+                  if mnuRemoteModeJS8Call.Checked then      //not both on at same time
+                     DisableRemoteMode;
                   mnuRemoteModeWsjt.Checked := True;
                   AnyRemoteOn := True;
                   WsjtxDecodeRunning        := false;
@@ -7561,7 +7579,9 @@ begin
                   if mnuRemoteModeWsjt.Checked then       //not both on at same time  wsjt
                      DisableRemoteMode;
                   if mnuRemoteMode.Checked then          //not both on at same time   fldigi
-                        DisableRemoteMode;
+                     DisableRemoteMode;
+                  if mnuRemoteModeJS8Call.Checked then      //not both on at same time
+                     DisableRemoteMode;
 
                   mnuRemoteModeADIF.Checked := True;
                   AnyRemoteOn := True;
@@ -7595,6 +7615,46 @@ begin
                      exit
                   end;
                   RemoteActive := 'adif';
+                end;
+        rmtJS8Call   : begin
+                  RememberAutoMode := chkAutoMode.Checked;
+                  chkAutoMode.Checked   := False;
+                  if mnuRemoteModeWsjt.Checked then      //not both on at same time
+                     DisableRemoteMode;
+                  if mnuRemoteModeADIF.Checked then      //not both on at same time
+                     DisableRemoteMode;
+                  if mnuRemoteMode.Checked then          //not both on at same time   fldigi
+                     DisableRemoteMode;
+
+                  mnuRemoteModeJS8Call.Checked := True;
+                  AnyRemoteOn := True;
+
+                  lblCall.Caption           := 'remote JS8Call';
+
+                  ADIFSock := TUDPBlockSocket.Create;
+                  if dmData.DebugLevel>=1 then Writeln('Socket created!');
+                  ADIFSock.EnableReuse(true);
+                  if dmData.DebugLevel>=1 then Writeln('Reuse enabled!');
+                  try
+                    //fix these in preferences
+                    ADIFSock.bind(cqrini.ReadString('n1mm','ip','127.0.0.1'),cqrini.ReadString('n1mm','port','2333'));
+                    if dmData.DebugLevel>=1 then Writeln('Bind issued '+cqrini.ReadString('n1mm','ip','127.0.0.1')+
+                                                                        ':'+cqrini.ReadString('n1mm','port','2333'));
+                     // On bind failure try to rebind every second
+                     while ((ADIFSock.LastError <> 0) and (tries > 0 )) do
+                       begin
+                         dec(tries);
+                         sleep(1000);
+                         ADIFSock.bind(cqrini.ReadString('n1mm','ip','127.0.0.1'),cqrini.ReadString('n1mm','port','2333'));
+                       end;
+                     tmrADIF.Enabled  := True;
+                  except
+                      {if dmData.DebugLevel>=1 then} Writeln('Could not bind socket for JS8Call!');
+                      edtRemQSO.Text := 'Could not bind socket for JS8Call!';
+                     DisableRemoteMode;
+                     exit
+                  end;
+                  RemoteActive := 'js8call';
                 end;
            end; //case remote type
 
@@ -7644,11 +7704,12 @@ begin
      mnuRemoteMode.Checked     := False;
   end ;
 
-  if  mnuRemoteModeADIF.Checked then
+  if mnuRemoteModeADIF.Checked or mnuRemoteModeJS8Call.Checked then
   begin
       tmrADIF.Enabled:=false;
       if Assigned(ADIFSock) then FreeAndNil(ADIFSock);  // to release UDP socket
       mnuRemoteModeADIF.Checked:= False;
+      mnuRemoteModeJS8Call.Checked:= False;
   end;
 
   AnyRemoteOn := False;
