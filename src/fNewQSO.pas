@@ -6221,23 +6221,28 @@ begin
              begin
                http.Document.Seek(0,soBeginning);
                m.CopyFrom(http.Document,http.Document.Size);
+               ShowMessage('eQSL Download Done')
              end;
            end;
         end;
       end;
-    end;
-    frmQSLViewer := TfrmQSLViewer.Create(self);
-    try
-      frmQSLViewer.eQSL := imagefile;
-      frmQSLViewer.ShowModal
-    finally
-      frmQSLViewer.Free
     end
+    else
+    begin
+      frmQSLViewer := TfrmQSLViewer.Create(self);
+      try
+        frmQSLViewer.eQSL := imagefile;
+        frmQSLViewer.ShowModal
+      finally
+        frmQSLViewer.Free
+      end
+    end;
   finally
       http.Free;
       m.Free;
       l.Free;
   end;
+
 end;
 
 procedure TfrmNewQSO.sbtnQSLClick(Sender: TObject);

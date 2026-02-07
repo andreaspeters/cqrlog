@@ -52,7 +52,8 @@ begin
   a := dmUtils.QSLFrontImageExists(fCall);
 
   if (Length(feQSL) > 0) then
-    a := feQSL;
+    if FileExists(feQSL) then
+      a := feQSL;
 
   if a <> '' then
     imgFront.Picture.LoadFromFile(a)
