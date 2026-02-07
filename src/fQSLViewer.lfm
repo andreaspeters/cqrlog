@@ -2,33 +2,32 @@ object frmQSLViewer: TfrmQSLViewer
   Left = 457
   Height = 422
   Top = 251
-  Width = 625
+  Width = 661
   ActiveControl = pgQSL
   Caption = 'QSL card'
   ClientHeight = 422
-  ClientWidth = 625
+  ClientWidth = 661
+  LCLVersion = '4.5.0.0'
   OnClose = FormClose
   OnShow = FormShow
-  LCLVersion = '0.9.28'
   object pgQSL: TPageControl
     Left = 0
     Height = 384
     Top = 0
-    Width = 625
+    Width = 661
     ActivePage = tabFront
     Align = alClient
     TabIndex = 0
     TabOrder = 0
-    OnPageChanged = pgQSLPageChanged
     object tabFront: TTabSheet
       Caption = 'Front'
       ClientHeight = 349
-      ClientWidth = 619
+      ClientWidth = 655
       object imgFront: TImage
         Left = 0
         Height = 349
         Top = 0
-        Width = 619
+        Width = 655
         Align = alClient
         AutoSize = True
       end
@@ -36,12 +35,12 @@ object frmQSLViewer: TfrmQSLViewer
     object tabBack: TTabSheet
       Caption = 'Back'
       ClientHeight = 349
-      ClientWidth = 619
+      ClientWidth = 655
       object imgBack: TImage
         Left = 0
         Height = 349
         Top = 0
-        Width = 619
+        Width = 655
         Align = alClient
         AutoSize = True
       end
@@ -51,19 +50,18 @@ object frmQSLViewer: TfrmQSLViewer
     Left = 0
     Height = 38
     Top = 384
-    Width = 625
+    Width = 661
     Align = alBottom
     BevelOuter = bvNone
     ClientHeight = 38
-    ClientWidth = 625
+    ClientWidth = 661
     TabOrder = 1
     object btnCancel: TButton
-      Left = 538
+      Left = 574
       Height = 25
       Top = 7
       Width = 75
       Anchors = [akTop, akRight]
-      Cancel = True
       Caption = 'Cancel'
       ModalResult = 2
       TabOrder = 0

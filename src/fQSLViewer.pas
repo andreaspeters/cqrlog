@@ -25,8 +25,10 @@ type
     procedure pgQSLPageChanged(Sender: TObject);
   private
     fCall : String;
+    feQSL : String;
   public
     property Call : String write fCall;
+    property eQSL : String write feQSL;
     { public declarations }
   end; 
 
@@ -48,12 +50,16 @@ begin
   dmUtils.LoadWindowPos(frmQSLViewer);
   fCall := LowerCase(StringReplace(fCall,'/','_',[rfReplaceAll, rfIgnoreCase]));
   a := dmUtils.QSLFrontImageExists(fCall);
+
+  if (Length(feQSL) > 0) then
+    a := feQSL;
+
   if a <> '' then
     imgFront.Picture.LoadFromFile(a)
   else
     exit;
   Height := imgFront.Picture.Height+Panel1.Height+35;
-  Width  := imgFront.Picture.Width;
+  Width  := imgFront.Picture.Width+10;
 
   a := dmUtils.QSLBackImageExists(fCall);
   if a <> '' then

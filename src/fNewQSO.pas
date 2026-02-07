@@ -21,7 +21,7 @@ uses
   LCLType, httpsend, Menus, ActnList, process, db,
   uCWKeying, ipc, baseunix, dLogUpload, blcksock, dateutils,
   fMonWsjtx, fWorkedGrids,fPropDK0WCY, fAdifImport, RegExpr,
-  FileUtil, LazFileUtils, sqldb, strutils, fphttpclient;
+  FileUtil, LazFileUtils, sqldb, strutils, fphttpclient, MD5;
 
 const
   cRefCall = 'Ref.call (CTRL+R): ';
@@ -6144,14 +6144,15 @@ var
   user: String = '';
   pass: String = '';
   url, tmp, year, month, day, hour, min, qsodate: String;
-  mode, band: String;
+  mode, band, imagefile, md5: String;
   http: THTTPSend;
   l: TStringlist;
   i: Integer;
+  m: TFileStream;
 begin
-  http := THTTPSend.Create;
-  l := TStringList.Create;
   try
+    http := THTTPSend.Create;
+    l := TStringList.Create;
     user := cqrini.ReadString('LoTW','eQSLName','');
     pass := cqrini.ReadString('LoTW','eQSLPass','');
     if (user = '') or (pass='') then
@@ -6170,46 +6171,72 @@ begin
     mode := cmbMode.Items[cmbMode.ItemIndex];
     band := dmUtils.GetBandFromFreq(cmbFreq.Text);
 
-    url := cqrini.ReadString('LoTW', 'eQSViewAddr','https://www.eqsl.cc/qslcard/GeteQSL.cfm')+
-           '?UserName='+user+
-           '&Password='+dmUtils.EncodeURLData(pass)+
-           '&CallsignFrom='+edtCall.Caption+
-           '&QSOYear='+dmUtils.EncodeURLData(year)+
-           '&QSOMonth='+dmUtils.EncodeURLData(month)+
-           '&QSODay='+dmUtils.EncodeURLData(day)+
-           '&QSOHour='+dmUtils.EncodeURLData(hour)+
-           '&QSOMinute='+dmUtils.EncodeURLData(min)+
-           '&QSOMode='+dmUtils.EncodeURLData(mode)+
-           '&QSOBand='+dmUtils.EncodeURLData(band);
+    md5 := md5print(md5string(edtDate.Caption+edtStartTime.Caption+edtCall.Caption+mode+band));
+    imagefile := dmData.HomeDir + 'images/'+md5+'.png';
 
-    if dmData.DebugLevel>=1 then Writeln(url);
-    http.MimeType := 'text/xml';
-    http.Protocol := '1.1';
-    http.ProxyHost := cqrini.ReadString('Program','Proxy','');
-    http.ProxyPort := cqrini.ReadString('Program','Port','');
-    http.UserName  := cqrini.ReadString('Program','User','');
-    http.Password  := cqrini.ReadString('Program','Passwd','');
-    if http.HTTPMethod('GET',url) then
+    // do not download again, if qsl file already exist.
+    if not FileExists(imagefile) then
     begin
-      http.Document.Seek(0,soBeginning);
-      l.LoadFromStream(http.Document);
-      if Pos(CDWNLD,l.Text) > 0 then
+      m := TFileStream.Create(imagefile,fmCreate);
+
+      url := cqrini.ReadString('LoTW', 'eQSViewAddr','https://www.eqsl.cc/qslcard/GeteQSL.cfm')+
+             '?UserName='+user+
+             '&Password='+dmUtils.EncodeURLData(pass)+
+             '&CallsignFrom='+edtCall.Caption+
+             '&QSOYear='+dmUtils.EncodeURLData(year)+
+             '&QSOMonth='+dmUtils.EncodeURLData(month)+
+             '&QSODay='+dmUtils.EncodeURLData(day)+
+             '&QSOHour='+dmUtils.EncodeURLData(hour)+
+             '&QSOMinute='+dmUtils.EncodeURLData(min)+
+             '&QSOMode='+dmUtils.EncodeURLData(mode)+
+             '&QSOBand='+dmUtils.EncodeURLData(band);
+
+      if dmData.DebugLevel>=1 then Writeln(url);
+      http.ProxyHost := cqrini.ReadString('Program','Proxy','');
+      http.ProxyPort := cqrini.ReadString('Program','Port','');
+      http.UserName  := cqrini.ReadString('Program','User','');
+      http.Password  := cqrini.ReadString('Program','Passwd','');
+      if http.HTTPMethod('GET',url) then
       begin
-        //First find the line where link is
-        for i:=0 to pred(l.Count) do
-         begin
-           if Pos(CDWNLD,l[i])>0 then //then parse filename
+        http.Document.Seek(0,soBeginning);
+        l.LoadFromStream(http.Document);
+        http.Clear;
+        if Pos(CDWNLD,l.Text) > 0 then
+        begin
+          //First find the line where link is
+          for i:=0 to pred(l.Count) do
            begin
-             tmp := copy(l[i],pos('src="',l[i]),length(l[i])); //start point
-             tmp := copy(l[i],1,pos('.PNG"',l[i])+3); //endpoint
-             tmp := ExtractFileNameOnly(tmp)+ExtractFileExt(tmp);
-             writeln(tmp);
+             if Pos(CDWNLD,l[i])>0 then //then parse filename
+             begin
+               tmp := copy(l[i],pos('src="',l[i]),length(l[i])); //start point
+               tmp := copy(l[i],1,pos('.PNG"',l[i])+3); //endpoint
+               tmp := ExtractFileNameOnly(tmp)+ExtractFileExt(tmp);
+             end;
            end;
-         end;
+           if (Length(tmp) > 0) then
+           begin
+             url := 'https://www.eqsl.cc/CFFileServlet/_cf_image/'+tmp;
+             if dmData.DebugLevel>0 then  Writeln('url: ',url);
+             if http.HTTPMethod('GET',url) then
+             begin
+               http.Document.Seek(0,soBeginning);
+               m.CopyFrom(http.Document,http.Document.Size);
+             end;
+           end;
+        end;
       end;
     end;
+    frmQSLViewer := TfrmQSLViewer.Create(self);
+    try
+      frmQSLViewer.eQSL := imagefile;
+      frmQSLViewer.ShowModal
+    finally
+      frmQSLViewer.Free
+    end
   finally
-    http.Free;
+      http.Free;
+      m.Free;
+      l.Free;
   end;
 end;
 
@@ -6221,7 +6248,7 @@ begin
     frmQSLViewer := TfrmQSLViewer.Create(self);
     try
       frmQSLViewer.Call := edtCall.Text;
-      frmQSLViewer.ShowModal
+      frmQSLViewer.ShowModal;
     finally
       frmQSLViewer.Free
     end
