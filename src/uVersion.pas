@@ -10,7 +10,7 @@ function cMINOR: Integer;
 function cRELEAS: Integer;
 function cBUILD: Integer;
 
-const cBUILD_DATE = '{$I %DATE%}';
+const cBUILD_DATE = {$I %DATE%};
 
 implementation
 
