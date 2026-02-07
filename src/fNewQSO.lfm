@@ -3926,6 +3926,7 @@ object frmNewQSO: TfrmNewQSO
             }
             ShowHint = True
             ParentShowHint = False
+            OnClick = sbtneQSLClick
           end
         end
         object pnlSbtn4: TPanel

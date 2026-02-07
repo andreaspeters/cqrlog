@@ -21,7 +21,7 @@ uses
   LCLType, httpsend, Menus, ActnList, process, db,
   uCWKeying, ipc, baseunix, dLogUpload, blcksock, dateutils,
   fMonWsjtx, fWorkedGrids,fPropDK0WCY, fAdifImport, RegExpr,
-  FileUtil, LazFileUtils, sqldb, strutils;
+  FileUtil, LazFileUtils, sqldb, strutils, fphttpclient;
 
 const
   cRefCall = 'Ref.call (CTRL+R): ';
@@ -592,6 +592,7 @@ type
     procedure sbtnAttachClick(Sender: TObject);
     procedure sbtnLocatorMapClick(Sender: TObject);
     procedure sbtnQSLClick(Sender: TObject);
+    procedure sbtneQSLClick(Sender: TObject);
     procedure sbtnQRZClick(Sender: TObject);
     procedure sbtnHamQTHClick(Sender : TObject);
     procedure sbtnUsrbtnClick(Sender: TObject);
@@ -6133,6 +6134,83 @@ begin
   finally
     frmCallAttachment.Free
   end
+end;
+
+procedure TfrmNewQSO.sbtneQSLClick(Sender: TObject);
+const
+  //it is better to seek the file suffix than the old way
+  CDWNLD = '.PNG" alt="" />';
+var
+  user: String = '';
+  pass: String = '';
+  url, tmp, year, month, day, hour, min, qsodate: String;
+  mode, band: String;
+  http: THTTPSend;
+  l: TStringlist;
+  i: Integer;
+begin
+  http := THTTPSend.Create;
+  l := TStringList.Create;
+  try
+    user := cqrini.ReadString('LoTW','eQSLName','');
+    pass := cqrini.ReadString('LoTW','eQSLPass','');
+    if (user = '') or (pass='') then
+    begin
+      ShowMessage('User name or password is not set!');
+      exit
+    end;
+
+    qsodate := edtDate.Caption;
+    year := qsodate.Split('-')[0];
+    month := qsodate.Split('-')[1];
+    day := qsodate.Split('-')[2];
+    qsodate := edtStartTime.Caption;
+    hour := qsodate.Split(':')[0];
+    min := qsodate.Split(':')[1];
+    mode := cmbMode.Items[cmbMode.ItemIndex];
+    band := dmUtils.GetBandFromFreq(cmbFreq.Text);
+
+    url := cqrini.ReadString('LoTW', 'eQSViewAddr','https://www.eqsl.cc/qslcard/GeteQSL.cfm')+
+           '?UserName='+user+
+           '&Password='+dmUtils.EncodeURLData(pass)+
+           '&CallsignFrom='+edtCall.Caption+
+           '&QSOYear='+dmUtils.EncodeURLData(year)+
+           '&QSOMonth='+dmUtils.EncodeURLData(month)+
+           '&QSODay='+dmUtils.EncodeURLData(day)+
+           '&QSOHour='+dmUtils.EncodeURLData(hour)+
+           '&QSOMinute='+dmUtils.EncodeURLData(min)+
+           '&QSOMode='+dmUtils.EncodeURLData(mode)+
+           '&QSOBand='+dmUtils.EncodeURLData(band);
+
+    if dmData.DebugLevel>=1 then Writeln(url);
+    http.MimeType := 'text/xml';
+    http.Protocol := '1.1';
+    http.ProxyHost := cqrini.ReadString('Program','Proxy','');
+    http.ProxyPort := cqrini.ReadString('Program','Port','');
+    http.UserName  := cqrini.ReadString('Program','User','');
+    http.Password  := cqrini.ReadString('Program','Passwd','');
+    if http.HTTPMethod('GET',url) then
+    begin
+      http.Document.Seek(0,soBeginning);
+      l.LoadFromStream(http.Document);
+      if Pos(CDWNLD,l.Text) > 0 then
+      begin
+        //First find the line where link is
+        for i:=0 to pred(l.Count) do
+         begin
+           if Pos(CDWNLD,l[i])>0 then //then parse filename
+           begin
+             tmp := copy(l[i],pos('src="',l[i]),length(l[i])); //start point
+             tmp := copy(l[i],1,pos('.PNG"',l[i])+3); //endpoint
+             tmp := ExtractFileNameOnly(tmp)+ExtractFileExt(tmp);
+             writeln(tmp);
+           end;
+         end;
+      end;
+    end;
+  finally
+    http.Free;
+  end;
 end;
 
 procedure TfrmNewQSO.sbtnQSLClick(Sender: TObject);
